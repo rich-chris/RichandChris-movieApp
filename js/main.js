@@ -44,3 +44,21 @@ function deleteMovieList() {
     );
 }
 
+
+
+// editMovieList()
+function editMovieList(){
+    fetch(mainURL + "/", {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            title: '' ,
+            year: '',
+            rating: ''
+        })
+
+    }).then(response => response.json())
+        .then(data => data)
+
+}

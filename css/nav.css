@@ -1,7 +1,8 @@
 nav{
     height: 6rem;
     width: 100vw;
-    background-color: var(--purple2);
+    /*background-color: var(--purple2);*/
+    background-color: rgba(145, 140, 241, 0.9);
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
     display: flex;
     position: fixed;
@@ -11,12 +12,20 @@ nav{
 
 /*Styling logo*/
 .logo{
-    padding:1vh 1vw;
+    /*padding:1vh 1vw;*/
     text-align: center;
+    position: relative;
+    left: 20px;
+    /*top: 10px;*/
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5rem;
 }
-.logo img {
-    height: 5rem;
-    width: 5rem;
+.fa-video{
+color: white;
+    font-size: 2.5rem;
 }
 
 /*Styling Links*/
@@ -32,10 +41,11 @@ nav{
 .nav-links li a{
     text-decoration: none;
     margin: 0 0.7vw;
+    color: var(--dark-soft-white);
 }
-.nav-links li a:hover {
-    color: #61DAFB;
-}
+/*.nav-links li a:hover {*/
+/*    color: var(--purple2);*/
+/*}*/
 .nav-links li {
     position: relative;
 }
@@ -44,7 +54,7 @@ nav{
     display: block;
     height: 3px;
     width: 0%;
-    background-color: #61DAFB;
+    background-color: var(--dark-soft-white);
     position: absolute;
     transition: all ease-in-out 250ms;
     margin: 0 0 0 10%;
@@ -54,43 +64,43 @@ nav{
 }
 
 /*Styling Buttons*/
-.login-button{
-    background-color: transparent;
-    border: 1.5px solid #f2f5f7;
-    border-radius: 2em;
-    padding: 0.6rem 0.8rem;
-    margin-left: 2vw;
-    font-size: 1rem;
-    cursor: pointer;
+/*.login-button{*/
+/*    background-color: transparent;*/
+/*    border: 1.5px solid #f2f5f7;*/
+/*    border-radius: 2em;*/
+/*    padding: 0.6rem 0.8rem;*/
+/*    margin-left: 2vw;*/
+/*    font-size: 1rem;*/
+/*    cursor: pointer;*/
 
-}
-.login-button:hover {
-    color: #131418;
-    background-color: #f2f5f7;
-    border:1.5px solid #f2f5f7;
-    transition: all ease-in-out 350ms;
-}
-.join-button{
-    color: #131418;
-    background-color: #61DAFB;
-    border: 1.5px solid #61DAFB;
-    border-radius: 2em;
-    padding: 0.6rem 0.8rem;
-    font-size: 1rem;
-    cursor: pointer;
-}
-.join-button:hover {
-    color: #f2f5f7;
-    background-color: transparent;
-    border:1.5px solid #f2f5f7;
-    transition: all ease-in-out 350ms;
-}
+/*}*/
+/*.login-button:hover {*/
+/*    color: #131418;*/
+/*    background-color: #f2f5f7;*/
+/*    border:1.5px solid #f2f5f7;*/
+/*    transition: all ease-in-out 350ms;*/
+/*}*/
+/*.join-button{*/
+/*    color: #131418;*/
+/*    background-color: #61DAFB;*/
+/*    border: 1.5px solid #61DAFB;*/
+/*    border-radius: 2em;*/
+/*    padding: 0.6rem 0.8rem;*/
+/*    font-size: 1rem;*/
+/*    cursor: pointer;*/
+/*}*/
+/*.join-button:hover {*/
+/*    color: #f2f5f7;*/
+/*    background-color: transparent;*/
+/*    border:1.5px solid #f2f5f7;*/
+/*    transition: all ease-in-out 350ms;*/
+/*}*/
 
 /*Styling Hamburger Icon*/
 .hamburger div{
     width: 30px;
     height:3px;
-    background: #f2f5f7;
+    background: var(--dark-soft-white);
     margin: 5px;
     transition: all 0.3s ease;
 }
@@ -116,19 +126,25 @@ nav{
     }
     .nav-links{
         position: fixed;
-        background: #131418;
+        background: rgba(145, 140, 241, .95);
         height: 100vh;
         width: 100%;
         flex-direction: column;
         clip-path: circle(50px at 90% -20%);
-        -webkit-clip-path: circle(50px at 90% -10%);
         transition: all 1s ease-out;
         pointer-events: none;
     }
     .nav-links.open{
-        clip-path: circle(1000px at 90% -10%);
-        -webkit-clip-path: circle(1000px at 90% -10%);
+        clip-path: circle(1000px at 100%);
         pointer-events: all;
+    }
+    .nav-links{
+        gap: 40px;
+        justify-content: center;
+    }
+    .nav-links a{
+        font-size: 7rem;
+        font-weight: 100;
     }
     .nav-links li{
         opacity: 0;

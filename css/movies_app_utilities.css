@@ -1,0 +1,55 @@
+/* Box sizing rules and reset*/
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+    /*Enable smooth horizontal scrolling*/
+    -webkit-overflow-scrolling: touch;
+}
+html {
+    /*font-family: "Montserrat", sans-serif;*/
+    /* resetting font size to 10px makes rem math much easier*/
+    font-size: 10px;
+    box-sizing: border-box;
+}
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+P, li {
+    font-size: 1.6rem;
+}
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/*Custom Properties*/
+:root{
+    --main-purple: rgb(118,113,240);
+}

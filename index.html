@@ -1,10 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<meta charset="UTF-8">
+<meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movies App</title>
+    <link rel="stylesheet" href="/css/movies_app_utilities.css">
+    <link rel="stylesheet" href="/css/movies_app.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/form_area.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-
+<nav>
+    <div class="logo">
+        <i class="fa-solid fa-video"></i>
+    </div>
+    <div class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Solutions</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><button class="login-button" href="#">Login</button></li>
+        <li><button class="join-button" href="#">Join</button></li>
+    </ul>
+</nav>
+<main>
+    <section class="form-area">
+        <div class="search-wrapper">
+            <input type="search" name="form-area-search" id="form-area-search" placeholder="Search movie..."
+                   autofocus>
+            <i class="fa-solid fa-filter"></i>
+        </div>
+        <div class="movie-output-control">
+            <button type="submit" class="btn">add movie</button>
+            <button type="submit" class="btn">edit movie</button>
+        </div>
+    </section>
+    <section class="movie-carousel">
+        <div><p>Add carousel here</p></div>
+    </section>
+</main>
+<script src="/js/nav.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

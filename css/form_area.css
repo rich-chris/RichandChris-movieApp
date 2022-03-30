@@ -1,7 +1,7 @@
 .form-area{
-    /*background-color: var(--main-purple);*/
-    background-color: red;
+    background-color: var(--main-purple);
+    /*background-color: red;*/
     width: 100vw;
     height: 500px;
-
+padding-top: 7rem;
 }

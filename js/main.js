@@ -1,6 +1,7 @@
 "use strict";
 
 const mainURL = "https://wandering-copper-sight.glitch.me/movies"
+
 var newMovie = {};
 newMovie.title = "";
 newMovie.year = "";
@@ -17,7 +18,7 @@ function renderMovies() {
 }
 
 
-addMovieList()
+// addMovieList()
 function addMovieList() {
     const options = {
         newMovie,
@@ -36,6 +37,10 @@ function addMovieList() {
 
 // deleteMovieList()
 function deleteMovieList() {
-
+    fetch(mainURL + "/",{
+        method:'DELETE'
+    }).then(response=>{  response.json()})
+        .then(data=> (data)
+    );
 }
 

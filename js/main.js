@@ -1,11 +1,15 @@
 "use strict";
 
-const mainURL = "https://wandering-copper-sight.glitch.me/movies"
+const mainURL = "https://wandering-copper-sight.glitch.me/movies";
+
+var movieTitle;
+var movieRating;
+var movieYear;
 
 var newMovie = {};
-newMovie.title = "";
-newMovie.year = "";
-newMovie.rating = "";
+newMovie.title = movieTitle;
+newMovie.year = movieYear;
+newMovie.rating = movieRating;
 
 
 renderMovies()
@@ -36,8 +40,8 @@ function addMovieList() {
 }
 
 // deleteMovieList()
-function deleteMovieList() {
-    fetch(mainURL + "/",{
+function deleteMovieList(id) {
+    fetch(mainURL + "/" + id,{
         method:'DELETE'
     }).then(response=>{  response.json()})
         .then(data=> (data)
@@ -47,15 +51,15 @@ function deleteMovieList() {
 
 
 // editMovieList()
-function editMovieList(){
-    fetch(mainURL + "/", {
+function editMovieList(id, title, year, rating){
+    fetch(mainURL + "/" + id, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            title: '' ,
-            year: '',
-            rating: ''
+            title: title ,
+            year: year,
+            rating: rating
         })
 
     }).then(response => response.json())

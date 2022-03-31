@@ -1,0 +1,27 @@
+.scroller {
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 100%;
+    width: 85vw;
+    margin: auto;
+    /*overflow-x: auto;*/
+    /*overscroll-behavior: contain;*/
+}
+.images-container {
+    display: flex;
+    gap: 24px;
+    /*overflow-x: auto;*/
+    padding-bottom: 30px;
+    /*width: 100%;*/
+}
+.images-container img {
+    object-fit: cover;
+    height: 281px;
+    width: 500px;
+    transition: height 350ms ease-in-out;
+}
+.images-container img:hover {
+    /*object-fit: cover;*/
+    height: 310px;
+    width: 500px;
+}

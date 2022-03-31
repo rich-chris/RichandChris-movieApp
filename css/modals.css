@@ -1,0 +1,44 @@
+/*TODO: ADD MODAL EDIT*/
+.add-movie-modal,.edit-movie-modal{
+    width: 100%;
+    max-width:550px;
+    border-radius: 15px;
+border: black 2px solid;
+}
+
+.add-movie-modal h2,.edit-movie-modal h2{
+    height: 80px;
+    background-color: var(--purple2);
+    color: var(--dark-soft-white);
+border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    font-size: 4.5rem;
+    padding: 15px 0 0 15px;
+}
+
+.add-movie-modal form,.edit-movie-modal form{
+    width: 100%;
+    /*margin: 0 auto;*/
+    padding: 30px;
+}
+.add-movie-modal .form-rows,.edit-movie-modal .form-rows{
+    margin-bottom: 3rem;
+}
+.add-movie-modal label,.edit-movie-modal label{
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: 2rem;
+}
+.add-movie-modal input,.edit-movie-modal input{
+    width: 100%;
+    max-width: 500px;
+    height: 35px;
+    /*background-color: transparent;*/
+    color: var(--main-purple);
+    padding: 15px 15px 15px 0;
+    font-size: 2rem;
+    border-bottom: 2px solid var(--main-purple);
+    outline: none;
+    letter-spacing: .046rem;
+}
+

@@ -17,8 +17,7 @@ function renderMovies() {
         .catch(error => console.log(error))
 }
 
-
-// addMovieList()
+//add a movie
 function addMovieList() {
     const options = {
         newMovie,
@@ -35,7 +34,7 @@ function addMovieList() {
 
 }
 
-// deleteMovieList()
+//delete a movie
 function deleteMovieList(id) {
     fetch(mainURL + "/" + id, {
         method: 'DELETE'
@@ -46,9 +45,8 @@ function deleteMovieList(id) {
         );
 }
 
-
-// editMovieList()
-function editMovieList(id, title, year, rating) {
+// edit a movie
+function editMovieList(id, title, genre, year, rating) {
     fetch(mainURL + "/" + id, {
         method: 'PUT',
         headers: {
@@ -57,7 +55,8 @@ function editMovieList(id, title, year, rating) {
         body: JSON.stringify({
             title: title,
             year: year,
-            rating: rating
+            rating: rating,
+            genre: genre
         })
 
     }).then(response => response.json())
@@ -74,6 +73,8 @@ function createCard(data) {
         let movieCardTitle = movieData.title;
         let movieCardYear = movieData.year;
         let movieCardRating = movieData.rating;
+        let movieCardGenre = movieData.genre
+        let movieCardID = movieData.id
 
     }
 
@@ -90,7 +91,7 @@ function loadPage() {
         });
 }
 
-
+//add movie to the database
 $(document).ready(function () {
     $('.add-movie-to-db').click(function () {
         newMovie.title = $('#add-title').val();
@@ -100,5 +101,15 @@ $(document).ready(function () {
         addMovieList()
         renderMovies()
     });
+
+    $('.edit-movie-to-db').click(function () {
+
+    });
+
+    $('.delete-movie-from-db').click(function () {
+
+
+    });
+
 
 });

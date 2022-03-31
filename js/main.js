@@ -1,23 +1,19 @@
 "use strict";
 
 const mainURL = "https://wandering-copper-sight.glitch.me/movies";
-
-var movieTitle;
-var movieRating;
-var movieYear;
-
 var newMovie = {};
-newMovie.title = movieTitle;
-newMovie.year = movieYear;
-newMovie.rating = movieRating;
+newMovie.title = '';
+newMovie.year = '';
+newMovie.rating = '';
 
 
+loadPage()
 renderMovies()
 
 function renderMovies() {
     fetch(mainURL)
         .then(response => response.json())
-        .then(data => console.log((data)))
+        .then(data => createCard(data))
         .catch(error => console.log(error))
 }
 
@@ -68,12 +64,30 @@ function editMovieList(id, title, year, rating) {
         .then(data => data)
 
 }
-document.querySelector(".content").style.display = "none"
-document.querySelector(".main-content").style.display = "none"
-fetch(mainURL)
-    .then(response => response.json())
-    .then(data => {
-        document.querySelector(".loader").style.display = "none"
-        document.querySelector(".content").style.display = "flex"
-        document.querySelector(".main-content").style.display = "block"
-    });
+
+//creates the individual movie cards
+function createCard(data) {
+    let html = '';
+    console.log(data)
+    for (let i = 0; i < data.length; i++) {
+        let movieData = data[i]
+        let movieCardTitle = movieData.title;
+        let movieCardYear = movieData.year;
+        let movieCardRating = movieData.rating;
+
+    }
+
+}
+
+//loading page
+function loadPage() {
+    document.querySelector(".content").style.display = "none"
+    document.querySelector(".main-content").style.display = "none"
+    fetch(mainURL)
+        .then(response => response.json())
+        .then(data => {
+            document.querySelector(".loader").style.display = "none"
+            document.querySelector(".content").style.display = "flex"
+            document.querySelector(".main-content").style.display = "block"
+        });
+}

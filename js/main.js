@@ -82,12 +82,23 @@ function createCard(data) {
 //loading page
 function loadPage() {
     document.querySelector(".content").style.display = "none"
-    document.querySelector(".main-content").style.display = "none"
     fetch(mainURL)
         .then(response => response.json())
         .then(data => {
             document.querySelector(".loader").style.display = "none"
-            document.querySelector(".content").style.display = "flex"
-            document.querySelector(".main-content").style.display = "block"
+            document.querySelector(".content").style.display = "block"
         });
 }
+
+
+$(document).ready(function () {
+    $('.add-movie-to-db').click(function () {
+        newMovie.title = $('#add-title').val();
+        newMovie.year = $('#add-year').val();
+        newMovie.rating = $('#add-rating').val();
+        newMovie.genre = $('#add-genre').val();
+        addMovieList()
+        renderMovies()
+    });
+
+});

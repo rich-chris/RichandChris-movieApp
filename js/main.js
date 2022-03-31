@@ -68,11 +68,12 @@ function editMovieList(id, title, year, rating) {
         .then(data => data)
 
 }
-
-document.querySelector('.loader');
-
+document.querySelector(".content").style.display = "none"
+document.querySelector(".main-content").style.display = "none"
 fetch(mainURL)
     .then(response => response.json())
     .then(data => {
-        document.querySelector(".loader").style.display = "none"//stop the load
+        document.querySelector(".loader").style.display = "none"
+        document.querySelector(".content").style.display = "flex"
+        document.querySelector(".main-content").style.display = "block"
     });

@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movies App</title>
+    <script src="js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="/css/movies_app_utilities.css">
     <link rel="stylesheet" href="/css/movies_app.css">
     <link rel="stylesheet" href="/css/nav.css">
@@ -16,11 +17,12 @@
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="css/custom.css">
+
 </head>
 <body>
 
 
-<main>
+<main class="content">
     <div class="nav-container">
         <nav>
             <div class="logo">
@@ -183,8 +185,10 @@
                     <label for="edit-year">Year</label>
                     <input type="text" name="edit-year" id="edit-year">
                 </div>
+
                 <div class="edit-buttons btn-group">
                     <button type="submit" class="btn submit-edit-btn">Submit</button>
+
                     <button type="submit" class="btn edit-movie-close-btn">Close</button>
                 </div>
             </form>

@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
+    <meta charset="UTF-8">
+    <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movies App</title>
@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="/css/form_area.css">
     <link rel="stylesheet" href="/css/scroller.css">
     <link rel="stylesheet" href="/css/modals.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
@@ -20,65 +22,125 @@
 
 <main>
     <div class="nav-container">
-    <nav>
-        <div class="logo">
-            <!--                <i class="fa-solid fa-video"></i>-->
-        </div>
-        <div class="hamburger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Search</a></li>
-            <li><a href="#">Add movie</a></li>
-            <li><a href="#">Edit movie</a></li>
-            <!--                <li><a href="#">Contact Us</a></li>-->
-        </ul>
-    </nav>
+        <nav>
+            <div class="logo">
+                <!--                <i class="fa-solid fa-video"></i>-->
+            </div>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Add movie</a></li>
+                <li><a href="#">Edit movie</a></li>
+                <!--                <li><a href="#">Contact Us</a></li>-->
+            </ul>
+        </nav>
     </div>
     <div class="page-container">
-
-
-
-    <section class="form-area">
-
-        <div class="search-container">
-            <div class="search-wrapper">
-                <input type="search" name="form-area-search" id="form-area-search" placeholder="Search movie..."
-                       autofocus>
-                <i class="fa-solid fa-filter"></i>
+        <section class="form-area">
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="search" name="form-area-search" id="form-area-search" placeholder="Search movie..."
+                           autofocus>
+                    <i class="fa-solid fa-filter"></i>
+                </div>
+                <div class="movie-output-control">
+                    <button type="submit" class="btn open-add-movie-modal">add movie</button>
+<!--                    <button type="submit" class="btn open-edit-movie-modal">edit movie</button>-->
+                </div>
             </div>
-            <div class="movie-output-control">
-                <button type="submit" class="btn open-add-movie-modal">add movie</button>
-                <button type="submit" class="btn open-edit-movie-modal">edit movie</button>
+        </section>
+        <!--        TODO: MOVIE SCROLLER-->
+        <section class="movie-carousel">
+            <h2>title goes here</h2>
+            <p class="edit-movie-button">edit movie</p>
+            <p class="delete-movie-button">delete movie</p>
+            <div class="media-scroller snaps-inline">
+
+                <div class="media-element">
+                    <img
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/>
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller edit-movie-button">Movie Title</p>
+                    <div class="movie-management-btns">
+                        <i class="fa-solid fa-trash-can delete-movie"></i>
+                        <i class="fa-solid fa-pen-to-square open-edit-movie-modal"></i>
+                    </div>
+
+                </div>
+                <div class="media-element">
+                    <img
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/wars.png"/>
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller ">Movie Title</p>
+                </div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/who.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/wars.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/who.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/wars.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/who.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/wars.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/who.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element"><img
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/wars.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title <br>Movie Title</p></div>
+                <div class="media-element">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/who.png"/><i
+                        class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller">Movie Title</p></div>
+                <div class="movie-management-btns">
+                    <i class="fa-solid fa-trash-can delete-movie"></i>
+                    <i class="fa-solid fa-pen-to-square open-edit-movie-modal"></i>
+                </div>
             </div>
-        </div>
-    </section>
-<!--        TODO: MOVIE SCROLLER-->
-    <section class="movie-carousel">
-        <div class="scroller">
-            <div class="images-container">
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png" /></a>
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/wars.png" /> </a>
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/who.png" /> </a>
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png" /> </a>
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/wars.png" /> </a>
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/who.png" /> </a> <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png" /> </a>
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/wars.png" /> </a>
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/who.png" /> </a> <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png" /> </a>
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/wars.png" /> </a>
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/who.png" /> </a> <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png" /> </a>
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/wars.png" /> </a>
-                <a href="#"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/who.png" /> </a>
-            </div>
-        </div>
-    </section>
-<!--        TODO: ADD MODAL-->
-        <dialog  id="add-movie-modal" class="add-movie-modal">
+
+        </section>
+        <!--        TODO: ADD MODAL-->
+        <dialog id="add-movie-modal" class="add-movie-modal">
             <h2>Add Movie</h2>
-            <form action="#">
+            <form action="#" method="dialog">
                 <div class="form-rows">
                     <label for="add-title">Title</label>
                     <input type="text" name="add-title" id="add-title">
@@ -95,14 +157,14 @@
                     <label for="add-year">Year</label>
                     <input type="text" name="add-year" id="add-year">
                 </div>
-<div class="add-buttons">
-    <button type="submit" class="btn add-movie-to-db">Add Movie</button>
-    <button type="submit" class="btn add-movie-close-btn">Close</button>
-</div>
+                <div class="add-buttons btn-group">
+                    <button type="submit" class="btn add-movie-to-db">Add Movie</button>
+                    <button type="submit" class="btn add-movie-close-btn">Close</button>
+                </div>
             </form>
         </dialog>
-<!--        TODO:EDIT MODAL-->
-        <dialog  id="edit-movie-modal" class="edit-movie-modal">
+        <!--        TODO:EDIT MODAL-->
+        <dialog id="edit-movie-modal" class="edit-movie-modal">
             <h2>Edit Movie</h2>
             <form action="#">
                 <div class="form-rows">
@@ -121,10 +183,26 @@
                     <label for="edit-year">Year</label>
                     <input type="text" name="edit-year" id="edit-year">
                 </div>
-                <div class="edit-buttons">
-                    <button type="submit" class="btn add-movie-to-db">Add Movie</button>
+                <div class="edit-buttons btn-group">
+                    <button type="submit" class="btn submit-edit-btn">Submit</button>
                     <button type="submit" class="btn edit-movie-close-btn">Close</button>
                 </div>
+            </form>
+        </dialog>
+        <!--        TODO:INFORMATION MODAL-->
+        <dialog  id="movie-info-modal" class="movie-info-modal">
+            <div class="movie-info-element">
+                <h2 class="movie-info-title">FAMILY GUY</h2>
+                <p class="movie-info-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut autem
+                    eius eos esse est et eveniet, fugit ipsam modi natus necessitatibus.</p>
+                <p class="movie-info-data">1999 - Adult Animation - 5.1 rating</p>
+            </div>
+
+            <div class="movie-info-buttons btn-group">
+                <button type="submit" class="btn edit-movie">Make Changes</button>
+                <button type="submit" class="btn edit-movie-close-btn">Close</button>
+                <button type="submit" class="btn edit-movie-close-btn">Close</button>
+            </div>
             </form>
         </dialog>
     </div>

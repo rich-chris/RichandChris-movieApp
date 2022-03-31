@@ -9,6 +9,9 @@ const submitEditBtn = document.querySelector(".submit-edit-btn"); // submit btn 
 const editMovieCloseBtn = document.querySelector(".edit-movie-close-btn"); // close btn inside edit modal
 const editMovieModal = document.querySelector("#edit-movie-modal"); //The actual Modal For editing Movies
 
+//Delete Movies
+const openDeleteMovieModal = document.querySelector(".open-edit-movie-modal"); // Edit icon in scroller
+
 //Edit, Delete & Movie Description
 // const movieInfoModal = document.querySelector("#movie-info-modal");
 // const edit = document.querySelector(".add-movie-close-btn");
@@ -29,3 +32,4 @@ openEditMovieModal.addEventListener("click", openEditModal);
 editMovieCloseBtn.addEventListener("click", closeEditMovieToModalFunc);
 
 
+//TODO: Open Movie Information Modal

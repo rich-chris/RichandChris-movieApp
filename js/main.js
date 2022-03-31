@@ -74,6 +74,7 @@ function createCard(data) {
         let movieCardTitle = movieData.title;
         let movieCardYear = movieData.year;
         let movieCardRating = movieData.rating;
+        let movieCardGenre = movieData.genre
 
     }
 
@@ -90,7 +91,7 @@ function loadPage() {
         });
 }
 
-
+//add movie to the database
 $(document).ready(function () {
     $('.add-movie-to-db').click(function () {
         newMovie.title = $('#add-title').val();

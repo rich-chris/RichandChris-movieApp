@@ -11,7 +11,7 @@ newMovie.title = movieTitle;
 newMovie.year = movieYear;
 newMovie.rating = movieRating;
 
-
+loadPage()
 renderMovies()
 
 function renderMovies() {
@@ -68,12 +68,17 @@ function editMovieList(id, title, year, rating) {
         .then(data => data)
 
 }
-document.querySelector(".content").style.display = "none"
-document.querySelector(".main-content").style.display = "none"
-fetch(mainURL)
-    .then(response => response.json())
-    .then(data => {
-        document.querySelector(".loader").style.display = "none"
-        document.querySelector(".content").style.display = "flex"
-        document.querySelector(".main-content").style.display = "block"
-    });
+
+
+//loading page
+function loadPage() {
+    document.querySelector(".content").style.display = "none"
+    document.querySelector(".main-content").style.display = "none"
+    fetch(mainURL)
+        .then(response => response.json())
+        .then(data => {
+            document.querySelector(".loader").style.display = "none"
+            document.querySelector(".content").style.display = "flex"
+            document.querySelector(".main-content").style.display = "block"
+        });
+}

@@ -41,23 +41,25 @@ function addMovieList() {
 
 // deleteMovieList()
 function deleteMovieList(id) {
-    fetch(mainURL + "/" + id,{
-        method:'DELETE'
-    }).then(response=>{  response.json()})
-        .then(data=> (data)
-    );
+    fetch(mainURL + "/" + id, {
+        method: 'DELETE'
+    }).then(response => {
+        response.json()
+    })
+        .then(data => (data)
+        );
 }
 
 
-
 // editMovieList()
-function editMovieList(id, title, year, rating){
+function editMovieList(id, title, year, rating) {
     fetch(mainURL + "/" + id, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json',
+        headers: {
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            title: title ,
+            title: title,
             year: year,
             rating: rating
         })
@@ -66,3 +68,11 @@ function editMovieList(id, title, year, rating){
         .then(data => data)
 
 }
+
+document.querySelector('.loader');
+
+fetch(mainURL)
+    .then(response => response.json())
+    .then(data => {
+        document.querySelector(".loader").style.display = "none"//stop the load
+    });

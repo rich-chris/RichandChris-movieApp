@@ -29,7 +29,7 @@ function addMovieList() {
     };
     fetch(mainURL, options)
         .then(response => console.log(response))
-        .then(data => console.log(data))
+        .then(data => renderMovies(data))
         .catch(error => console.error(error));
 
 }
@@ -77,23 +77,40 @@ function createCard(data) {
         let movieCardID = movieData.id
 
 
-        html += `<div class="media-element">
-                    <img
+          html += `<div class="media-element">
+                    <img class="image"
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/>
                     <i class="fa-solid fa-circle-xmark"></i>
-                    <p class="movie-title-scroller edit-movie-button">Movie Title</p>
+                    <p class="movie-title-scroller edit-movie-button">Title: `+ movieCardTitle +`</p>
+                    <p class="movie-title-scroller edit-movie-button">Genre: `+ movieCardGenre +`</p>
+                    <p class="movie-title-scroller edit-movie-button">Year: `+ movieCardYear +`</p>
+                    <p class="movie-title-scroller edit-movie-button">Rating: `+ movieCardRating +`</p>
                     <div class="movie-management-btns">
                         <i class="fa-solid fa-trash-can open-delete-movie-modal"></i>
                         <i class="fa-solid fa-pen-to-square open-edit-movie-modal"></i>
                     </div>
 
-                </div>
-               
+                </div>         
 `
 
 
     }
-     $('.snaps-inline').html(html)
+     $('.snaps-inline').html(html);
+
+
+
+    $('.open-edit-movie-modal').click(function () {
+        $('#edit-movie-modal').css('display', 'block')
+    });
+    $('.close').click(function () {
+        $('#edit-movie-modal').css('display', 'none');
+        $('#add-movie-modal').css('display', 'none');
+    });
+    $('.open-add-movie-modal').click(function (){
+        $('#add-movie-modal').css('display', 'block')
+    });
+
+
 
 }
 
@@ -116,14 +133,10 @@ $(document).ready(function () {
         newMovie.rating = $('#add-rating').val();
         newMovie.genre = $('#add-genre').val();
         addMovieList()
-        renderMovies()
-    });
-
-    $('.edit-movie-to-db').click(function () {
 
     });
+    $('.open-delete-movie-modal').click(function () {
 
-    $('.delete-movie-from-db').click(function () {
 
 
     });

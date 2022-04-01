@@ -6,6 +6,10 @@ var newMovie = {};
 // newMovie.year = '';
 // newMovie.rating = '';
 var movieCardID;
+var movieCardTitle;
+var movieCardGenre;
+var movieCardRating;
+var movieCardYear;
 var i;
 
 
@@ -43,7 +47,7 @@ function deleteMovieList(id) {
     }).then(response => {
         response.json()
     })
-        .then(data => (data)
+        .then(data => renderMovies(data)
         );
 }
 
@@ -62,21 +66,22 @@ function editMovieList(id, title, genre, year, rating) {
         })
 
     }).then(response => response.json())
-        .then(data => data)
+        .then(data => renderMovies(data))
 
 }
 
 //creates the individual movie cards
 function createCard(data) {
     let html = '';
+    let html2 = '';
     console.log(data)
     for (i = 0; i < data.length; i++) {
         let movieData = data[i];
-        let movieCardTitle = movieData.title;
-        let movieCardYear = movieData.year;
-        let movieCardRating = movieData.rating;
-        let movieCardGenre = movieData.genre;
-         movieCardID = movieData.id;
+         movieCardTitle = movieData.title;
+         movieCardYear = movieData.year;
+         movieCardRating = movieData.rating;
+         movieCardGenre = movieData.genre;
+        movieCardID = movieData.id;
 
         html += `<div class="media-element ${movieCardID}">
                     <img class="image"
@@ -88,14 +93,19 @@ function createCard(data) {
                     <p class="movie-title-scroller edit-movie-button">Rating: ` + movieCardRating + `</p>
                     <div class="movie-management-btns">
                         <i class="fa-solid fa-trash-can open-delete-movie-modal " id="${movieCardID}"></i>
-                        <i class="fa-solid fa-pen-to-square open-edit-movie-modal"></i>
+                        <i class="fa-solid fa-pen-to-square open-edit-movie-modal" id="${movieCardID}"></i>
                     </div>
 
                 </div>         
 `
 
+
         $('.snaps-inline').html(html);
 
+    }
+    html2 += `<button type="submit" class="btn submit-edit" id="${movieCardID}">Submit</button>
+<button type="submit" class="btn close">Close</button>`
+    $('.edit-buttons').html(html2);
 
         $('.open-edit-movie-modal').click(function () {
             $('#edit-movie-modal').css('display', 'block')
@@ -108,14 +118,24 @@ function createCard(data) {
             $('#add-movie-modal').css('display', 'block')
         });
         $('.open-delete-movie-modal').click(function () {
-            console.log('hi')
             console.log(this.id)
             deleteMovieList(this.id)
-            renderMovies()
         });
+    $('.submit-edit').click(function () {
+        console.log('hey')
+        console.log(this.id)
+        movieCardTitle = $('#edit-title').val();
+        movieCardGenre = $('#edit-year').val();
+        movieCardYear = $('#edit-rating').val();
+        movieCardRating = $('#edit-genre').val();
+        editMovieList(`${movieCardID}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`)
+
+    });
 
 
-    }
+
+
+
 
 }
 
@@ -142,11 +162,8 @@ $(document).ready(function () {
         addMovieList()
 
     });
-    $('.open-delete-movie-modal').click(function () {
 
 
-
-    });
 
 
 });

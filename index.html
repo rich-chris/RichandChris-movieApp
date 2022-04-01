@@ -133,7 +133,7 @@
                         class="fa-solid fa-circle-xmark"></i>
                     <p class="movie-title-scroller">Movie Title</p></div>
                 <div class="movie-management-btns">
-                    <i class="fa-solid fa-trash-can delete-movie"></i>
+                    <i class="fa-solid fa-trash-can open-delete-movie-modal"></i>
                     <i class="fa-solid fa-pen-to-square open-edit-movie-modal"></i>
                 </div>
             </div>
@@ -194,20 +194,27 @@
             </form>
         </dialog>
         <!--        TODO:INFORMATION MODAL-->
-        <dialog  id="movie-info-modal" class="movie-info-modal">
+        <dialog   id="movie-description-modal" class="movie-description-modal">
             <div class="movie-info-element">
-                <h2 class="movie-info-title">FAMILY GUY</h2>
-                <p class="movie-info-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut autem
-                    eius eos esse est et eveniet, fugit ipsam modi natus necessitatibus.</p>
-                <p class="movie-info-data">1999 - Adult Animation - 5.1 rating</p>
+                <img src="/img/shrek2.jpeg" alt="shrek">
+                <div class="gradient"></div>
+                <i class="fa-solid fa-xmark"></i>
+                <div class="movie-info-element-text">
+                    <h2 class="movie-info-title">FAMILY GUY</h2>
+                    <p class="movie-description-plot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut autem
+                        eius eos esse est et eveniet, fugit ipsam modi natus necessitatibus.</p>
+                    <p class="movie-description-data"><span class="description-year"></span> - <span></span> Adult Animation -
+                        <span
+                            class="description-rating"></span>
+                        rating</p>
+                </div>
+
             </div>
 
-            <div class="movie-info-buttons btn-group">
-                <button type="submit" class="btn edit-movie">Make Changes</button>
-                <button type="submit" class="btn edit-movie-close-btn">Close</button>
-                <button type="submit" class="btn edit-movie-close-btn">Close</button>
-            </div>
-            </form>
+<!--            <div class="movie-description-btns btn-group">-->
+<!--                <button type="submit" class="btn close-description-btn">Close</button>-->
+<!--            </div>-->
+<!--            </form>-->
         </dialog>
     </div>
 </main>

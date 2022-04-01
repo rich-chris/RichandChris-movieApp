@@ -17,7 +17,7 @@
 .search-container{
     position: relative;
     width: 80%;
-    border: 2px solid red;
+    /*border: 2px solid red;*/
 }
 .search-wrapper{
     display: flex;

@@ -71,3 +71,17 @@ picture {
     max-width:1300px ;
     margin: 0 auto;
 }
+
+
+.container {
+    display: table;
+    float: left;
+    padding: 60px;
+    text-align: center;
+    background: #efefef;
+    transition: background .5s;
+}
+.container img {
+    display: table-cell;
+    vertical-align: middle;
+}

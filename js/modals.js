@@ -9,10 +9,11 @@ const submitEditBtn = document.querySelector(".submit-edit-btn"); // submit btn 
 const editMovieCloseBtn = document.querySelector(".edit-movie-close-btn"); // close btn inside edit modal
 const editMovieModal = document.querySelector("#edit-movie-modal"); //The actual Modal For editing Movies
 
-//Edit, Delete & Movie Description
-// const movieInfoModal = document.querySelector("#movie-info-modal");
-// const edit = document.querySelector(".add-movie-close-btn");
-
+//Movie Description Modal
+const movieDescriptionModal = document.querySelector("#movie-description-modal"); // Movie description modal
+let mediaElements = Array.from(document.querySelectorAll(".media-element img")); // image container in horizontal
+// scroller
+const closeMovieDescriptionBtn = document.querySelector(".fa-xmark"); // "x" button to close movie description modal
 
 //TODO: Open Add Movie Modal
 let addMovieToModalFunc = () => addMovieModal.showModal();
@@ -28,4 +29,12 @@ let closeEditMovieToModalFunc = () => editMovieModal.close();
 openEditMovieModal.addEventListener("click", openEditModal);
 editMovieCloseBtn.addEventListener("click", closeEditMovieToModalFunc);
 
+//TODO: Open Movie Description Modal
+let openDescriptionModalFunc = () => movieDescriptionModal.showModal();
+let closeDescriptionModalFunc = () => movieDescriptionModal.close();
 
+for(let elements of mediaElements) {
+    elements.addEventListener("click",openDescriptionModalFunc);
+}
+
+closeMovieDescriptionBtn.addEventListener("click",closeDescriptionModalFunc);

@@ -13,6 +13,7 @@ var movieCardYear;
 var i;
 
 
+
 loadPage()
 renderMovies()
 
@@ -76,17 +77,16 @@ function createCard(data) {
     let html2 = '';
     console.log(data)
     for (i = 0; i < data.length; i++) {
-        let movieData = data[i];
-         movieCardTitle = movieData.title;
-         movieCardYear = movieData.year;
-         movieCardRating = movieData.rating;
-         movieCardGenre = movieData.genre;
+        var movieData = data[i];
+        movieCardTitle = movieData.title;
+        movieCardYear = movieData.year;
+        movieCardRating = movieData.rating;
+        movieCardGenre = movieData.genre;
         movieCardID = movieData.id;
 
         html += `<div class="media-element ${movieCardID}">
                     <img class="image"
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/>
-                    <i class="fa-solid fa-circle-xmark"></i>
                     <p class="movie-title-scroller edit-movie-button">Title: ` + movieCardTitle + `</p>
                     <p class="movie-title-scroller edit-movie-button">Genre: ` + movieCardGenre + `</p>
                     <p class="movie-title-scroller edit-movie-button">Year: ` + movieCardYear + `</p>
@@ -102,43 +102,44 @@ function createCard(data) {
 
         $('.snaps-inline').html(html);
 
+
     }
-    html2 += `<button type="submit" class="btn submit-edit" id="${movieCardID}">Submit</button>
+    //id tying to both edit modal and initial edit icon
+    html2 += `<button type="submit" class="btn submit-edit" id="${i}">Submit</button>
 <button type="submit" class="btn close">Close</button>`
     $('.edit-buttons').html(html2);
 
-        $('.open-edit-movie-modal').click(function () {
-            $('#edit-movie-modal').css('display', 'block')
-        });
-        $('.close').click(function () {
-            $('#edit-movie-modal').css('display', 'none');
-            $('#add-movie-modal').css('display', 'none');
-        });
-        $('.open-add-movie-modal').click(function () {
-            $('#add-movie-modal').css('display', 'block')
-        });
-        $('.open-delete-movie-modal').click(function () {
-            console.log(this.id)
-            deleteMovieList(this.id)
-        });
+
+    $('.open-edit-movie-modal').click(function () {
+        $('#edit-movie-modal').css('display', 'block');
+    });
+    $('.close').click(function () {
+        $('#edit-movie-modal').css('display', 'none');
+        $('#add-movie-modal').css('display', 'none');
+    });
+    $('.open-add-movie-modal').click(function () {
+        $('#add-movie-modal').css('display', 'block')
+    });
+    $('.open-delete-movie-modal').click(function () {
+        console.log(this.id)
+        deleteMovieList(this.id)
+    });
     $('.submit-edit').click(function () {
         console.log('hey')
         console.log(this.id)
+        console.log(movieData)
+
         movieCardTitle = $('#edit-title').val();
         movieCardGenre = $('#edit-year').val();
         movieCardYear = $('#edit-rating').val();
         movieCardRating = $('#edit-genre').val();
-        editMovieList(`${movieCardID}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`)
+        // editMovieList(`${i}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`)
+        // $('#edit-movie-modal').css('display', 'none');
 
     });
 
 
-
-
-
-
 }
-
 
 
 //loading page
@@ -160,10 +161,9 @@ $(document).ready(function () {
         newMovie.rating = $('#add-rating').val();
         newMovie.genre = $('#add-genre').val();
         addMovieList()
+        $('#add-movie-modal').css('display', 'none');
 
     });
-
-
 
 
 });

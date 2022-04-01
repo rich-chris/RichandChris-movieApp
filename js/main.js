@@ -11,6 +11,7 @@ var movieCardGenre;
 var movieCardRating;
 var movieCardYear;
 var i;
+var movieData;
 
 
 
@@ -77,7 +78,7 @@ function createCard(data) {
     let html2 = '';
     console.log(data)
     for (i = 0; i < data.length; i++) {
-        var movieData = data[i];
+        movieData = data[i];
         movieCardTitle = movieData.title;
         movieCardYear = movieData.year;
         movieCardRating = movieData.rating;
@@ -94,6 +95,7 @@ function createCard(data) {
                     <div class="movie-management-btns">
                         <i class="fa-solid fa-trash-can open-delete-movie-modal " id="${movieCardID}"></i>
                         <i class="fa-solid fa-pen-to-square open-edit-movie-modal" id="${movieCardID}"></i>
+                      
                     </div>
 
                 </div>         
@@ -105,36 +107,36 @@ function createCard(data) {
 
     }
     //id tying to both edit modal and initial edit icon
-    html2 += `<button type="submit" class="btn submit-edit" id="${i}">Submit</button>
+    html2 += `<button type="submit" class="btn submit-edit" id="submit-edit">Submit</button>
 <button type="submit" class="btn close">Close</button>`
     $('.edit-buttons').html(html2);
 
 
     $('.open-edit-movie-modal').click(function () {
         $('#edit-movie-modal').css('display', 'block');
+        $('#submit-edit').attr('id', `${this.id}`)
+
     });
     $('.close').click(function () {
         $('#edit-movie-modal').css('display', 'none');
         $('#add-movie-modal').css('display', 'none');
+
     });
     $('.open-add-movie-modal').click(function () {
         $('#add-movie-modal').css('display', 'block')
     });
     $('.open-delete-movie-modal').click(function () {
-        console.log(this.id)
         deleteMovieList(this.id)
     });
-    $('.submit-edit').click(function () {
-        console.log('hey')
-        console.log(this.id)
-        console.log(movieData)
-
+    $('#submit-edit').click(function () {
+        console.log(i)
+        console.log(movieCardID)
         movieCardTitle = $('#edit-title').val();
         movieCardGenre = $('#edit-year').val();
         movieCardYear = $('#edit-rating').val();
         movieCardRating = $('#edit-genre').val();
-        // editMovieList(`${i}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`)
-        // $('#edit-movie-modal').css('display', 'none');
+        editMovieList(`${this.id}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`)
+        $('#edit-movie-modal').css('display', 'none');
 
     });
 

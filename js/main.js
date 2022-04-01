@@ -2,9 +2,11 @@
 
 const mainURL = "https://wandering-copper-sight.glitch.me/movies";
 var newMovie = {};
-newMovie.title = '';
-newMovie.year = '';
-newMovie.rating = '';
+// newMovie.title = '';
+// newMovie.year = '';
+// newMovie.rating = '';
+var movieCardID;
+var i;
 
 
 loadPage()
@@ -68,51 +70,56 @@ function editMovieList(id, title, genre, year, rating) {
 function createCard(data) {
     let html = '';
     console.log(data)
-    for (let i = 0; i < data.length; i++) {
-        let movieData = data[i]
+    for (i = 0; i < data.length; i++) {
+        let movieData = data[i];
         let movieCardTitle = movieData.title;
         let movieCardYear = movieData.year;
         let movieCardRating = movieData.rating;
-        let movieCardGenre = movieData.genre
-        let movieCardID = movieData.id
+        let movieCardGenre = movieData.genre;
+         movieCardID = movieData.id;
 
-
-          html += `<div class="media-element">
+        html += `<div class="media-element ${movieCardID}">
                     <img class="image"
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/>
                     <i class="fa-solid fa-circle-xmark"></i>
-                    <p class="movie-title-scroller edit-movie-button">Title: `+ movieCardTitle +`</p>
-                    <p class="movie-title-scroller edit-movie-button">Genre: `+ movieCardGenre +`</p>
-                    <p class="movie-title-scroller edit-movie-button">Year: `+ movieCardYear +`</p>
-                    <p class="movie-title-scroller edit-movie-button">Rating: `+ movieCardRating +`</p>
+                    <p class="movie-title-scroller edit-movie-button">Title: ` + movieCardTitle + `</p>
+                    <p class="movie-title-scroller edit-movie-button">Genre: ` + movieCardGenre + `</p>
+                    <p class="movie-title-scroller edit-movie-button">Year: ` + movieCardYear + `</p>
+                    <p class="movie-title-scroller edit-movie-button">Rating: ` + movieCardRating + `</p>
                     <div class="movie-management-btns">
-                        <i class="fa-solid fa-trash-can open-delete-movie-modal"></i>
+                        <i class="fa-solid fa-trash-can open-delete-movie-modal " id="${movieCardID}"></i>
                         <i class="fa-solid fa-pen-to-square open-edit-movie-modal"></i>
                     </div>
 
                 </div>         
 `
 
+        $('.snaps-inline').html(html);
+
+
+        $('.open-edit-movie-modal').click(function () {
+            $('#edit-movie-modal').css('display', 'block')
+        });
+        $('.close').click(function () {
+            $('#edit-movie-modal').css('display', 'none');
+            $('#add-movie-modal').css('display', 'none');
+        });
+        $('.open-add-movie-modal').click(function () {
+            $('#add-movie-modal').css('display', 'block')
+        });
+        $('.open-delete-movie-modal').click(function () {
+            console.log('hi')
+            console.log(this.id)
+            deleteMovieList(this.id)
+            renderMovies()
+        });
+
 
     }
-     $('.snaps-inline').html(html);
-
-
-
-    $('.open-edit-movie-modal').click(function () {
-        $('#edit-movie-modal').css('display', 'block')
-    });
-    $('.close').click(function () {
-        $('#edit-movie-modal').css('display', 'none');
-        $('#add-movie-modal').css('display', 'none');
-    });
-    $('.open-add-movie-modal').click(function (){
-        $('#add-movie-modal').css('display', 'block')
-    });
-
-
 
 }
+
+
 
 //loading page
 function loadPage() {

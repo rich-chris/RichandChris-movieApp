@@ -76,7 +76,24 @@ function createCard(data) {
         let movieCardGenre = movieData.genre
         let movieCardID = movieData.id
 
+
+        html += `<div class="media-element">
+                    <img
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/>
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <p class="movie-title-scroller edit-movie-button">Movie Title</p>
+                    <div class="movie-management-btns">
+                        <i class="fa-solid fa-trash-can open-delete-movie-modal"></i>
+                        <i class="fa-solid fa-pen-to-square open-edit-movie-modal"></i>
+                    </div>
+
+                </div>
+               
+`
+
+
     }
+     $('.snaps-inline').html(html)
 
 }
 
@@ -113,3 +130,5 @@ $(document).ready(function () {
 
 
 });
+
+

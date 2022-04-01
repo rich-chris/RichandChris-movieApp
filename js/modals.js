@@ -38,3 +38,12 @@ for(let elements of mediaElements) {
 }
 
 closeMovieDescriptionBtn.addEventListener("click",closeDescriptionModalFunc);
+
+
+infoBtn = document.querySelector("btn")
+arrayOfMovies = ["movie1","movie2","movie3"];
+
+for(let i = 0;i < arrayOfMovies.length;i++)
+infoBtn.addEventListener("click",()=>{
+    console.log("hello")
+})

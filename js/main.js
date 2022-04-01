@@ -76,7 +76,6 @@ function createCard(data) {
         let movieCardGenre = movieData.genre
         let movieCardID = movieData.id
 
-
         html += `<div class="media-element">
                     <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/>
@@ -90,10 +89,10 @@ function createCard(data) {
                 </div>
                
 `
-
-
+        $('.snaps-inline').html(html)
     }
-     $('.snaps-inline').html(html)
+
+    // return $('.snaps-inline').html(html)
 
 }
 

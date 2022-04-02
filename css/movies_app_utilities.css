@@ -28,14 +28,11 @@ body {
     line-height: 1.5;
     overflow-x: hidden;
 }
-P, li {
+P, li,button, h2, label,h1{
     font-size: 1.6rem;
     font-family: 'Poppins', sans-serif;
 }
-button, h2, label{
-    font-size: 1.6rem;
-    font-family: 'Poppins', sans-serif;
-}
+
 img,
 picture {
     max-width: 100%;

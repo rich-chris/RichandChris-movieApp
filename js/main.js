@@ -15,7 +15,6 @@ var movieData;
 var attArray;
 
 
-
 loadPage()
 renderMovies()
 
@@ -100,7 +99,7 @@ function createCard(data) {
                     </div>
                 </div>         
 `
-$('.snaps-inline').html(html);
+        $('.snaps-inline').html(html);
 
     }
     //id tying to both edit modal and initial edit icon
@@ -172,4 +171,18 @@ $(document).ready(function () {
 
 });
 
+function search_movies() {
+    let input = document.getElementById('form-area-search').value
+    input = input.toLowerCase();
+    let x = document.getElementsByClassName('media-element');
+    for (var i = 0; i < x.length; i++) {
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display = "none";
+        } else {
+            x[i].style.display = "";
+        }
+    }
+}
+
+document.getElementById('form-area-search').addEventListener('keyup', search_movies);
 

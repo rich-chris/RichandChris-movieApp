@@ -11,6 +11,8 @@ var movieCardGenre;
 var movieCardRating;
 var movieCardYear;
 var i;
+var movieData;
+
 
 
 loadPage()
@@ -76,17 +78,16 @@ function createCard(data) {
     let html2 = '';
     console.log(data)
     for (i = 0; i < data.length; i++) {
-        let movieData = data[i];
-         movieCardTitle = movieData.title;
-         movieCardYear = movieData.year;
-         movieCardRating = movieData.rating;
-         movieCardGenre = movieData.genre;
+        movieData = data[i];
+        movieCardTitle = movieData.title;
+        movieCardYear = movieData.year;
+        movieCardRating = movieData.rating;
+        movieCardGenre = movieData.genre;
         movieCardID = movieData.id;
 
         html += `<div class="media-element ${movieCardID}">
                     <img class="image"
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/>
-
                     <p class="movie-title-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Title</span>: ` + movieCardTitle + `</p>
                     <p class="movie-genre-scroller edit-movie-button datap"><span class="movie-genre-bold bolded">Genre</span>: ` + movieCardGenre + `</p>
                     <p class="movie-year-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Year</span>: ` + movieCardYear + `</p>
@@ -95,50 +96,47 @@ function createCard(data) {
                         <i class="fa-solid fa-trash-can open-delete-movie-modal " id="${movieCardID}"></i>
                         <i class="fa-solid fa-pen-to-square open-edit-movie-modal" id="${movieCardID}"></i>
                     </div>
-
                 </div>         
 `
-
-
-        $('.snaps-inline').html(html);
+$('.snaps-inline').html(html);
 
     }
-    html2 += `<button type="submit" class="btn submit-edit" id="${movieCardID}">Submit</button>
+    //id tying to both edit modal and initial edit icon
+    html2 += `<button type="submit" class="btn submit-edit" id="submit-edit">Submit</button>
 <button type="submit" class="btn close">Close</button>`
     $('.edit-buttons').html(html2);
 
-        $('.open-edit-movie-modal').click(function () {
-            $('#edit-movie-modal').css('display', 'block')
-        });
-        $('.close').click(function () {
-            $('#edit-movie-modal').css('display', 'none');
-            $('#add-movie-modal').css('display', 'none');
-        });
-        $('.open-add-movie-modal').click(function () {
-            $('#add-movie-modal').css('display', 'block')
-        });
-        $('.open-delete-movie-modal').click(function () {
-            console.log(this.id)
-            deleteMovieList(this.id)
-        });
-    $('.submit-edit').click(function () {
-        console.log('hey')
-        console.log(this.id)
+
+    $('.open-edit-movie-modal').click(function () {
+        $('#edit-movie-modal').css('display', 'block');
+        $('#submit-edit').attr('id', `${this.id}`)
+
+    });
+    $('.close').click(function () {
+        $('#edit-movie-modal').css('display', 'none');
+        $('#add-movie-modal').css('display', 'none');
+
+    });
+    $('.open-add-movie-modal').click(function () {
+        $('#add-movie-modal').css('display', 'block')
+    });
+    $('.open-delete-movie-modal').click(function () {
+        deleteMovieList(this.id)
+    });
+    $('#submit-edit').click(function () {
+        console.log(i)
+        console.log(movieCardID)
         movieCardTitle = $('#edit-title').val();
         movieCardGenre = $('#edit-year').val();
         movieCardYear = $('#edit-rating').val();
         movieCardRating = $('#edit-genre').val();
-        editMovieList(`${movieCardID}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`)
+        editMovieList(`${this.id}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`)
+        $('#edit-movie-modal').css('display', 'none');
 
     });
 
 
-
-
-
-
 }
-
 
 
 //loading page
@@ -160,10 +158,9 @@ $(document).ready(function () {
         newMovie.rating = $('#add-rating').val();
         newMovie.genre = $('#add-genre').val();
         addMovieList()
+        $('#add-movie-modal').css('display', 'none');
 
     });
-
-
 
 
 });

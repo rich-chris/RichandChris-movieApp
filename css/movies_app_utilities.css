@@ -78,7 +78,7 @@ picture {
     background: #efefef;
     transition: background .5s;
 }
-.container img {
-    display: table-cell;
-    vertical-align: middle;
-}
+/*.container img {*/
+/*    display: table-cell;*/
+/*    vertical-align: middle;*/
+/*}*/

@@ -132,9 +132,9 @@ function createCard(data) {
         console.log(i)
         console.log(movieCardID)
         movieCardTitle = $('#edit-title').val();
-        movieCardGenre = $('#edit-year').val();
-        movieCardYear = $('#edit-rating').val();
-        movieCardRating = $('#edit-genre').val();
+        movieCardGenre = $('#edit-genre').val();
+        movieCardYear = $('#edit-year').val();
+        movieCardRating = $('#edit-rating').val();
         editMovieList(`${this.id}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`)
         $('#edit-movie-modal').css('display', 'none');
 

@@ -88,22 +88,17 @@ function createCard(data) {
         html += `<div class="media-element ${movieCardID}">
                     <img class="image"
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/>
-                    <p class="movie-title-scroller edit-movie-button">Title: ` + movieCardTitle + `</p>
-                    <p class="movie-title-scroller edit-movie-button">Genre: ` + movieCardGenre + `</p>
-                    <p class="movie-title-scroller edit-movie-button">Year: ` + movieCardYear + `</p>
-                    <p class="movie-title-scroller edit-movie-button">Rating: ` + movieCardRating + `</p>
+                    <p class="movie-title-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Title</span>: ` + movieCardTitle + `</p>
+                    <p class="movie-genre-scroller edit-movie-button datap"><span class="movie-genre-bold bolded">Genre</span>: ` + movieCardGenre + `</p>
+                    <p class="movie-year-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Year</span>: ` + movieCardYear + `</p>
+                    <p class="movie-rating-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Rating</span>: ` + movieCardRating + `</p>
                     <div class="movie-management-btns">
                         <i class="fa-solid fa-trash-can open-delete-movie-modal " id="${movieCardID}"></i>
                         <i class="fa-solid fa-pen-to-square open-edit-movie-modal" id="${movieCardID}"></i>
-                      
                     </div>
-
                 </div>         
 `
-
-
-        $('.snaps-inline').html(html);
-
+$('.snaps-inline').html(html);
 
     }
     //id tying to both edit modal and initial edit icon

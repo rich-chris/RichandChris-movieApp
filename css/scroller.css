@@ -1,12 +1,25 @@
 .media-scroller{
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 53%;
+    grid-auto-columns: 78%;
     gap: 11px;
     overflow-x: auto;
-    overscroll-behavior-inline: contain;
+    overscroll-behavior: contain;
     padding: 10px;
+    width: 100%;}
+
+.media-scroller{
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    /*scrollbar-width: none; !* for Firefox *!*/
+    overflow-y: scroll;
 }
+
+.media-scroller::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+.movie-carousel{
+    width: 100%;
+ }
 .media-element{
     display: grid;
     grid-template-rows: min-content;
@@ -48,4 +61,14 @@ position: absolute;
     font-size: 1.8rem;
     width: 100%;
     gap: 15px;
+}
+
+.bolded{
+    font-weight: 600;
+    color: var(--dark-soft-white);
+    letter-spacing: .065rem;
+}
+.datap{
+    color: var(--soft-white);
+    text-transform: capitalize;
 }

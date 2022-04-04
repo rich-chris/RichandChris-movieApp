@@ -27,6 +27,7 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     overflow-x: hidden;
+    position: relative;
 }
 P, li,button, h2, label,h1{
     font-size: 1.6rem;
@@ -67,8 +68,11 @@ picture {
     width: 90%;
     max-width:1300px ;
     margin: 0 auto;
+    height: 100vh;
 }
-
+main{
+    height:100vh;
+}
 
 .container {
     display: table;

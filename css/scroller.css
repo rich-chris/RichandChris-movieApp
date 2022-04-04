@@ -71,6 +71,7 @@ position: absolute;
     letter-spacing: .065rem;
 }
 .datap{
-    color: var(--soft-white);
+    color: rgba(255, 255, 255, 0.61);
     text-transform: capitalize;
+    /*font-weight: 500;*/
 }

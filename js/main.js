@@ -116,16 +116,21 @@ function createCard(data) {
         $('#edit-genre').attr('value', `${this.dataset.genre}`);
         $('#edit-rating').attr('value', `${this.dataset.rating}`);
         $('#edit-year').attr('value', `${this.dataset.year}`);
+        $('.modal-backdrop').css('display', 'block');
 
 
     });
     $('.close').click(function () {
         $('#edit-movie-modal').css('display', 'none');
         $('#add-movie-modal').css('display', 'none');
+        $('.modal-backdrop').css('display', 'none');
 
     });
     $('.open-add-movie-modal').click(function () {
-        $('#add-movie-modal').css('display', 'block')
+        $('#add-movie-modal').css('display', 'block');
+        $('.modal-backdrop').css('display', 'block');
+
+
     });
     $('.open-delete-movie-modal').click(function () {
         deleteMovieList(this.id)
@@ -139,6 +144,7 @@ function createCard(data) {
         movieCardRating = $('#edit-rating').val();
         editMovieList(`${this.id}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`)
         $('#edit-movie-modal').css('display', 'none');
+        $('.modal-backdrop').css('display', 'none');
 
     });
 

@@ -12,6 +12,7 @@ var movieCardRating;
 var movieCardYear;
 var i;
 var movieData;
+var attArray;
 
 
 
@@ -84,6 +85,7 @@ function createCard(data) {
         movieCardRating = movieData.rating;
         movieCardGenre = movieData.genre;
         movieCardID = movieData.id;
+        attArray = [movieCardTitle, movieCardGenre, movieCardYear, movieCardRating]
 
         html += `<div class="media-element ${movieCardID}">
                     <img class="image"
@@ -94,7 +96,7 @@ function createCard(data) {
                     <p class="movie-rating-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Rating</span>: ` + movieCardRating + `</p>
                     <div class="movie-management-btns">
                         <i class="fa-solid fa-trash-can open-delete-movie-modal " id="${movieCardID}"></i>
-                        <i class="fa-solid fa-pen-to-square open-edit-movie-modal" id="${movieCardID}"></i>
+                        <i class="fa-solid fa-pen-to-square open-edit-movie-modal" id="${movieCardID}" data-title="${movieCardTitle}" data-genre="${movieCardGenre}" data-year="${movieCardYear}" data-rating="${movieCardRating}"></i>
                     </div>
                 </div>         
 `
@@ -109,7 +111,12 @@ $('.snaps-inline').html(html);
 
     $('.open-edit-movie-modal').click(function () {
         $('#edit-movie-modal').css('display', 'block');
-        $('#submit-edit').attr('id', `${this.id}`)
+        $('#submit-edit').attr('id', `${this.id}`);
+        $('#edit-title').attr('value', `${this.dataset.title}`);
+        $('#edit-genre').attr('value', `${this.dataset.genre}`);
+        $('#edit-rating').attr('value', `${this.dataset.rating}`);
+        $('#edit-year').attr('value', `${this.dataset.year}`);
+
 
     });
     $('.close').click(function () {

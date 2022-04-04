@@ -10,12 +10,12 @@
 // const editMovieCloseBtn = document.querySelector(".edit-movie-close-btn"); // close btn inside edit modal
 // const editMovieModal = document.querySelector("#edit-movie-modal"); //The actual Modal For editing Movies
 //
-// //Movie Description Modal
+//Movie Description Modal
 // const movieDescriptionModal = document.querySelector("#movie-description-modal"); // Movie description modal
 // let mediaElements = Array.from(document.querySelectorAll(".media-element img")); // image container in horizontal
 // // scroller
 // const closeMovieDescriptionBtn = document.querySelector(".fa-xmark"); // "x" button to close movie description modal
-//
+
 // //TODO: Open Add Movie Modal
 // let addMovieToModalFunc = () => addMovieModal.showModal();
 // let closeAddMovieToModalFunc = () => addMovieModal.close();
@@ -37,7 +37,7 @@
 // for(let elements of mediaElements) {
 //     elements.addEventListener("click",openDescriptionModalFunc);
 // }
-//
+// //
 // closeMovieDescriptionBtn.addEventListener("click",closeDescriptionModalFunc);
 //
 

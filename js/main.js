@@ -37,7 +37,7 @@ function addMovieList() {
         body: JSON.stringify(newMovie),
     };
     fetch(mainURL, options)
-        .then(response => console.log(response))
+        .then(response => response)
         .then(data => renderMovies(data))
         .catch(error => console.error(error));
 
@@ -77,7 +77,6 @@ function editMovieList(id, title, genre, year, rating) {
 function createCard(data) {
     let html = '';
     let html2 = '';
-    console.log(data)
     for (i = 0; i < data.length; i++) {
         movieData = data[i];
         movieCardTitle = movieData.title;
@@ -92,7 +91,7 @@ function createCard(data) {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/>
                     <p class="movie-title-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Title</span>: ` + movieCardTitle + `</p>
                     <p class="movie-genre-scroller edit-movie-button datap"><span class="movie-genre-bold bolded">Genre</span>: ` + movieCardGenre + `</p>
-                    <p class="movie-year-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Year</span>: ` + movieCardYear + `</p>
+                    <p class="movie-year-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Release</span>: ` + movieCardYear + `</p>
                     <p class="movie-rating-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Rating</span>: ` + movieCardRating + `</p>
                     <div class="movie-management-btns">
                         <i class="fa-solid fa-trash-can open-delete-movie-modal " id="${movieCardID}"></i>
@@ -136,8 +135,6 @@ function createCard(data) {
         deleteMovieList(this.id)
     });
     $('#submit-edit').click(function () {
-        console.log(i)
-        console.log(movieCardID)
         movieCardTitle = $('#edit-title').val();
         movieCardGenre = $('#edit-genre').val();
         movieCardYear = $('#edit-year').val();

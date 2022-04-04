@@ -190,7 +190,7 @@ document.getElementById('form-area-search').addEventListener('keyup', filter_mov
 
 document.onkeydown = function (e){
     if (e.keyCode === 13) {
-        document.getElementById('form-area-new').addEventListener('keypress', movieAPI)
+        document.getElementById('form-area-new').addEventListener('change', movieAPI)
         searchedMovieTitle = document.getElementById('form-area-new').value
 
     }

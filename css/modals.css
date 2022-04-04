@@ -1,5 +1,5 @@
 /*TODO: ADD MODAL EDIT*/
-.edit-movie-modal, .movie-description-modal{
+.add-movie-modal,.edit-movie-modal, .movie-description-modal{
     width: 90%;
     margin: 0 auto;
     max-width:550px;
@@ -8,11 +8,24 @@ border: rgba(61, 22, 96, 0.5) 1px solid;
     position: relative;
     /*top: 0%;*/
     /*left: 50%;*/
-    transform: translateY(-110%);
+    transform: translateY(-100%);
+    z-index: 250;
 }
-.add-movie-modal::backdrop,.edit-movie-modal::backdrop,.movie-description-modal::backdrop{
+.modal-backdrop{
     background-color: rgba(16, 0, 16, 0.49);
+    width: 120%;
+    height: 120%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: 150;
+    display: none;
 }
+/*.add-movie-modal::backdrop,.edit-movie-modal::backdrop,.movie-description-modal::backdrop{*/
+/*    background-color: rgba(16, 0, 16, 0.49);*/
+/*}*/
 .add-movie-modal h2,.edit-movie-modal h2{
     height: 80px;
     background-color: var(--purple2);

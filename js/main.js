@@ -14,6 +14,7 @@ var i;
 var movieData;
 var attArray;
 var searchedMovieTitle;
+var randNum;
 
 
 loadPage()
@@ -85,10 +86,11 @@ function createCard(data) {
         movieCardGenre = movieData.genre;
         movieCardID = movieData.id;
         attArray = [movieCardTitle, movieCardGenre, movieCardYear, movieCardRating]
+        randNum = Math.floor(Math.random() * (10- 1 + 1)) + 1;
 
         html += `<div class="media-element ${movieCardID}">
-                    <img class="image"
-                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/158090/trek.png"/>
+                    <img class="image" id="cardimage"
+                            src="img/poster${randNum}.png"/>
                     <p class="movie-title-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Title</span>: ` + movieCardTitle + `</p>
                     <p class="movie-genre-scroller edit-movie-button datap"><span class="movie-genre-bold bolded">Genre</span>: ` + movieCardGenre + `</p>
                     <p class="movie-year-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Release</span>: ` + movieCardYear + `</p>
@@ -123,6 +125,7 @@ function createCard(data) {
         $('#edit-movie-modal').css('display', 'none');
         $('#add-movie-modal').css('display', 'none');
         $('.modal-backdrop').css('display', 'none');
+        $('#movie-description-modal').css('display', 'none');
 
     });
     $('.open-add-movie-modal').click(function () {
@@ -169,6 +172,7 @@ $(document).ready(function () {
         newMovie.genre = $('#add-genre').val();
         addMovieList()
         $('#add-movie-modal').css('display', 'none');
+        $('.modal-backdrop').css('display', 'none');
 
     });
 

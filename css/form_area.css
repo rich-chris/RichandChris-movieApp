@@ -45,6 +45,17 @@
     outline: none;
     border-left: 2px solid var(--dark-soft-white);
 }
+#form-area-new{
+    width: 100%;
+    max-width: 500px;
+    height: 35px;
+    background-color: transparent;
+    color: var(--soft-white);
+    padding: 15px 15px 15px 5px;
+    font-size: 2rem;
+    outline: none;
+    border-left: 2px solid var(--dark-soft-white);
+}
 input::placeholder{
     color: var(--soft-white);
 }

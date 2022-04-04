@@ -13,6 +13,7 @@ var movieCardYear;
 var i;
 var movieData;
 var attArray;
+var searchedMovieTitle;
 
 
 loadPage()
@@ -171,7 +172,7 @@ $(document).ready(function () {
 
 });
 
-function search_movies() {
+function filter_movies() {
     let input = document.getElementById('form-area-search').value
     input = input.toLowerCase();
     let x = document.getElementsByClassName('media-element');
@@ -184,5 +185,28 @@ function search_movies() {
     }
 }
 
-document.getElementById('form-area-search').addEventListener('keyup', search_movies);
+document.getElementById('form-area-search').addEventListener('keyup', filter_movies);
 
+
+document.onkeydown = function (e){
+    if (e.keyCode === 13) {
+        document.getElementById('form-area-new').addEventListener('keypress', movieAPI)
+        searchedMovieTitle = document.getElementById('form-area-new').value
+
+    }
+}
+
+
+function movieAPI(){
+    fetch(`https://www.omdbapi.com/?apikey=${OMDB_KEY}&t=${searchedMovieTitle}`)
+        .then(response => response.json())
+        .then(data => {
+            newMovie.title = data.Title;
+            newMovie.rating = data.imdbRating;
+            newMovie.year = data.Year;
+            newMovie.genre = data.Genre;
+            addMovieList()
+        })
+
+
+}

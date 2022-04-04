@@ -20,6 +20,8 @@ var randNum;
 loadPage()
 renderMovies()
 
+
+//render server data onto webpage
 function renderMovies() {
     fetch(mainURL)
         .then(response => response.json())
@@ -182,6 +184,7 @@ $(document).ready(function () {
 
 });
 
+//search through data on server
 function filter_movies() {
     let input = document.getElementById('form-area-search').value
     input = input.toLowerCase();
@@ -195,6 +198,7 @@ function filter_movies() {
     }
 }
 
+//omdb api search
 document.getElementById('form-area-search').addEventListener('keyup', filter_movies);
 
 
@@ -206,7 +210,7 @@ document.onkeydown = function (e){
     }
 }
 
-
+//fetch omdb api
 function movieAPI(){
     fetch(`https://www.omdbapi.com/?apikey=${OMDB_KEY}&t=${searchedMovieTitle}`)
         .then(response => response.json())

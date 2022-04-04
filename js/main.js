@@ -131,9 +131,12 @@ function createCard(data) {
     $('.open-add-movie-modal').click(function () {
         $('#add-movie-modal').css('display', 'block');
         $('.modal-backdrop').css('display', 'block');
-
-
     });
+    $(".add-navlink").click(function () {
+        $('#add-movie-modal').css('display', 'block');
+        $('.modal-backdrop').css('display', 'block');
+    });
+
     $('.open-delete-movie-modal').click(function () {
         deleteMovieList(this.id)
     });

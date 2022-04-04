@@ -68,7 +68,9 @@ border-top-left-radius: 15px;
     justify-content: end;
     gap: 25px;
 }
-
+.btn{
+    cursor:pointer;
+}
 /*TODO: movie-info-modal*/
 .movie-description-modal{
     /*padding: 30px;*/

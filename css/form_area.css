@@ -34,19 +34,22 @@
     justify-content: center;
     margin-bottom: 2rem;
 }
-/*TODO: search form*/
-#form-area-search{
-    width: 100%;
-    max-width: 500px;
-    height: 35px;
-    background-color: transparent;
-    color: var(--soft-white);
-    padding: 15px 15px 15px 5px;
-    font-size: 2rem;
-    outline: none;
-    border-left: 2px solid var(--dark-soft-white);
+.search-box-btn-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex: 1;
+    flex-wrap: wrap;
+    min-width: 320px;
 }
-#form-area-new{
+.svg-girls{
+    display: none;
+}
+/*TODO: search form*/
+
+#form-area-new, #form-area-search{
     width: 100%;
     max-width: 500px;
     height: 35px;
@@ -60,11 +63,14 @@
 input::placeholder{
     color: var(--soft-white);
 }
-
-.fa-filter{
-    color: var(--dark-soft-white);
-    font-size: 2rem;
+#form-area-search{
+    margin-bottom: 3rem;
 }
+
+/*.fa-filter{*/
+/*    color: var(--dark-soft-white);*/
+/*    font-size: 2rem;*/
+/*}*/
 
 /*TODO: add and edit buttons*/
 .movie-output-control{
@@ -88,6 +94,9 @@ input::placeholder{
     /*font-weight: 500;*/
 }
 
+
+
+
 @media screen and (min-width: 750px) {
     .movie-search-h1 {
         font-size: 5.2rem;
@@ -96,5 +105,84 @@ input::placeholder{
     }
     .movie-output-control{
         margin: 0 auto 5.2rem auto;
+    }
+    .search-container{
+        width: 90%;
+    }
+    .svg-girls{
+        display: block;
+    }
+#popcorn1{
+    animation: popcorn1 1.5s ease-in-out infinite alternate;
+}
+    @keyframes popcorn1 {
+        from{transform: translateY(0);}
+        to{
+            transform: translateY(16px);
+        }
+    }
+    #popcorn2{
+        animation: popcorn2 1.6s .5ms ease-in-out infinite alternate;
+    }
+    @keyframes popcorn2 {
+        from{transform: translateY(0);}
+        to{
+            transform: translateY(12px);
+        }
+    }
+    #Vector_107{
+        animation: Vector_107 2s .6ms ease-in-out infinite alternate;
+    }
+    @keyframes Vector_107 {
+        from{
+            transform: translateY(0) rotate(0deg);
+        }
+        to{
+            transform: translateY(15px) rotate(2deg);
+        }
+    }
+    #Vector_108, #popcorn4{
+        animation: Vector_108 2.2s .8ms ease-in-out infinite alternate;
+    }
+    @keyframes Vector_108 {
+        from{
+            transform: translateY(0) rotate(0deg);
+        }
+        to{
+            transform: translateY(15px) rotate(2deg);
+        }
+    }
+    #popcorn5{
+        animation: popcorn5 1.9s .8ms ease-in-out infinite alternate;
+    }
+    @keyframes popcorn5 {
+        from{
+            transform: translateY(0) rotate(0deg);
+        }
+        to{
+            transform: translateY(-3px) rotate(-7deg);
+        }
+    }
+    #popcorn6{
+        animation: popcorn6 1.9s .8ms ease-in-out infinite alternate;
+    }
+    @keyframes popcorn6 {
+        from{
+            transform: translateY(0) rotate(0deg);
+        }
+        to{
+            transform: translateY(-5px) rotate(-5deg);
+        }
+    }
+    #popcorn7{
+        animation: popcorn7 1.9s .5ms ease-in-out infinite alternate;
+    }
+    @keyframes popcorn7 {
+        from{
+            transform: translateY(0) rotate(0deg);
+        }
+        to{
+            transform: translateY(-5px) rotate(-5deg);
+        }
     }
 }

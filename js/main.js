@@ -219,6 +219,7 @@ function movieAPI(){
             newMovie.rating = data.imdbRating;
             newMovie.year = data.Year;
             newMovie.genre = data.Genre;
+            newMovie.poster = data.Poster
             addMovieList()
         })
 

@@ -1,27 +1,95 @@
-.scroller {
-    padding: 1rem;
-    border-radius: 8px;
-    max-width: 100%;
-    width: 85vw;
-    margin: auto;
-    /*overflow-x: auto;*/
-    /*overscroll-behavior: contain;*/
+.media-scroller{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    gap: 11px;
+    overflow-x: auto;
+    overscroll-behavior: contain;
+    padding: 10px;
+    width: 100%;
+
 }
-.images-container {
-    display: flex;
-    gap: 24px;
-    /*overflow-x: auto;*/
-    padding-bottom: 30px;
-    /*width: 100%;*/
+
+/*.media-scroller{*/
+/*    -ms-overflow-style: none; !* for Internet Explorer, Edge *!*/
+/*    !*scrollbar-width: none; !* for Firefox *!*!*/
+/*    overflow-y: scroll;*/
+/*}*/
+
+.media-scroller::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
 }
-.images-container img {
+.movie-carousel{
+    width: 100%;
+    position: relative;
+ }
+.media-element{
+    display: grid;
+    grid-template-rows: min-content;
+    gap: 10px;
+    position: relative;
+    /*padding-right: 10px;*/
+    /*padding: 20px;*/
+}
+.media-element > img {
+    /*padding: 20px;*/
+    border-radius: 10px;
+    width: 100%;
+    /*min-width: 175px;*/
+
+    aspect-ratio: 16 / 9;
     object-fit: cover;
-    height: 281px;
-    width: 500px;
-    transition: height 350ms ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+
 }
-.images-container img:hover {
-    /*object-fit: cover;*/
-    height: 310px;
-    width: 500px;
+.snaps-inline{
+    scroll-snap-type: inline mandatory;
+scroll-padding-inline: 1rem;
+}
+.snaps-inline > *{
+    scroll-snap-align: start;
+}
+/*.fa-circle-xmark{*/
+/*    font-size: 2.5rem;*/
+/*position: absolute;*/
+/*    color: var(--purple2);*/
+/*    right: 6px;*/
+/*    top: 6px;*/
+/*    filter: drop-shadow(0 0 5px #333);*/
+/*}*/
+.movie-management-btns{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 1.8rem;
+    width: 100%;
+    gap: 15px;
+}
+.open-delete-movie-modal,
+.open-edit-movie-modal{
+    cursor: pointer;
+}
+.bolded{
+    font-weight: 600;
+    color: var(--dark-soft-white);
+    letter-spacing: .065rem;
+}
+.datap{
+    color: rgba(255, 255, 255, 0.61);
+    text-transform: capitalize;
+    /*font-weight: 500;*/
+}
+/*TODO SCROLLER GRADIENTS*/
+/*.movie-carousel::before{*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    width: 60px;*/
+/*    height: ;*/
+
+/*}*/
+@media screen and (min-width: 750px) {
+    .media-scroller{
+        grid-auto-columns: 32%;
+
+    }
 }

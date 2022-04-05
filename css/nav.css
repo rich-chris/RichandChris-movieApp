@@ -1,43 +1,42 @@
-.nav-container{
-    width: 90%;
-    max-width:1300px ;
-    margin: 0 auto;
+*{
+    margin: 0;
+    padding: 0;
+    color: #f2f5f7;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+body{
+    overflow-x: hidden;
 }
 nav{
     height: 6rem;
     width: 100vw;
-    /*width: 90%;*/
-    /*background-color: var(--purple2);*/
     background-color: white;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    /*max-width:1300px ;*/
     display: flex;
-    position: fixed;
+    justify-content: center;
+    /*align-items: center;*/
+    position: relative;
     z-index: 10;
     top: 0;
-    left: 0;
-
+    left: 50%;
     border-bottom-right-radius:15px;
     border-bottom-left-radius: 15px;
+    transform: translateX(-50%);
 }
 
 /*Styling logo*/
-.logo{
-    /*padding:1vh 1vw;*/
-    text-align: center;
-    position: relative;
-    left: 20px;
-    /*top: 10px;*/
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 5rem;
-}
-.fa-video{
-color: var(--black);
-    font-size: 2.5rem;
-}
+/*.logo{*/
+/*    text-align: center;*/
+/*    position: relative;*/
+/*    left: 20px;*/
+/*    !*top: 10px;*!*/
+/*    height: 100%;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    margin-right: 5rem;*/
+/*}*/
 
 /*Styling Links*/
 .nav-links{
@@ -48,16 +47,17 @@ color: var(--black);
     justify-content: space-evenly;
     align-items: center;
     text-transform: uppercase;
+    max-width: 1300px;
 }
 .nav-links li a{
     text-decoration: none;
     margin: 0 0.7vw;
-    color: var(--soft-white);
+    color: var(--main-purple);
     font-weight: 500;
 }
-/*.nav-links li a:hover {*/
-/*    color: var(--purple2);*/
-/*}*/
+.nav-links li a:hover {
+    color: var(--purple2);
+}
 .nav-links li {
     position: relative;
 }
@@ -66,14 +66,16 @@ color: var(--black);
     display: block;
     height: 3px;
     width: 0%;
-    background-color: var(--soft-white);
+    background-color: var(--purple2);
     position: absolute;
     transition: all ease-in-out 250ms;
     margin: 0 0 0 10%;
 }
+
 .nav-links li a:hover::before{
     width: 80%;
 }
+
 /*Styling Hamburger Icon*/
 .hamburger div{
     width: 30px;
@@ -82,12 +84,12 @@ color: var(--black);
     margin: 5px;
     transition: all 0.3s ease;
 }
-/*.hamburger{*/
-/*    display: none;*/
-/*}*/
+.hamburger{
+    display: none;
+}
 
 /*Stying for small screens*/
-@media screen and (min-width: 200px){
+@media screen and (max-width: 800px){
     nav{
         position: fixed;
         z-index: 3;
@@ -102,30 +104,50 @@ color: var(--black);
         z-index: 2;
         transition: all 0.7s ease;
     }
+    .hamburger div{
+        background: var(--purple2);
+    }
+    /*.hamburger:active div,.hamburger:focus div{*/
+    /*    background: var(--dark-soft-white);*/
+    /*}*/
     .nav-links{
         position: fixed;
-        background: rgba(145, 140, 241, .95);
+        background: var(--main-purple);
         height: 100vh;
         width: 100%;
         flex-direction: column;
         clip-path: circle(50px at 90% -20%);
+        /*-webkit-clip-path: circle(50px at 90% -10%);*/
         transition: all 1s ease-out;
         pointer-events: none;
-    }
-    .nav-links.open{
-        clip-path: circle(3000px at 100%);
-        pointer-events: all;
-    }
-    .nav-links{
-        gap: 40px;
+        align-items: center;
         justify-content: center;
     }
-    .nav-links a{
-        font-size: 7rem;
-        font-weight: 100;
+    .nav-links li a::before {
+        background-color: var(--dark-soft-white);
+    }
+    .nav-links li a:hover {
+        color: var(--dark-soft-white);
+    }
+    .nav-links li a{
+        text-decoration: none;
+        /*margin: 0 0.7vw;*/
+        color: var(--dark-soft-white);
+        font-weight: 500;
+        font-size: 5.3rem;
+    }
+    /*:is(.hamburger.open) div{*/
+
+    /*    background: var(--dark-soft-white);*/
+    /*}*/
+    .nav-links.open{
+        clip-path: circle(1000px at 100%);
+        /*-webkit-clip-path: circle(1000px at 90% -10%);*/
+        pointer-events: all;
     }
     .nav-links li{
         opacity: 0;
+        margin-bottom: 6rem;
     }
     .nav-links li:nth-child(1){
         transition: all 0.5s ease 0.2s;

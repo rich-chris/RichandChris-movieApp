@@ -70,7 +70,7 @@ function editMovieList(id, title, genre, year, rating) {
             genre: genre
         })
 
-    }).then(response => response.json())
+    }).then(response =>  response.json())
         .then(data => data)
 
 }
@@ -91,7 +91,7 @@ function createCard(data) {
 
         html += `<div class="media-element ${movieCardID}">
                     <img class="image" id="cardimage"
-                            src="img/poster${randNum}.png"/>
+                            />
                     <p class="movie-title-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Title</span>: ` + movieCardTitle + `</p>
                     <p class="movie-genre-scroller edit-movie-button datap"><span class="movie-genre-bold bolded">Genre</span>: ` + movieCardGenre + `</p>
                     <p class="movie-year-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Release</span>: ` + movieCardYear + `</p>
@@ -219,6 +219,7 @@ function movieAPI(){
             newMovie.year = data.Year;
             newMovie.genre = data.Genre;
             newMovie.poster = data.Poster
+            $('#cardimage').attr("src", `${newMovie.poster}`)
             addMovieList()
         })
 

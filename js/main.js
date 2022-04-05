@@ -182,6 +182,7 @@ $(document).ready(function () {
         newMovie.year = $('#add-year').val();
         newMovie.rating = $('#add-rating').val();
         newMovie.genre = $('#add-genre').val();
+        newMovie.poster = `../img/poster${randNum}.png`
         addMovieList()
         $('#add-movie-modal').css('display', 'none');
         $('.modal-backdrop').css('display', 'none');

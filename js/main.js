@@ -53,8 +53,7 @@ function deleteMovieList(id) {
     }).then(response => {
         response.json()
     })
-        .then(data => renderMovies(data)
-        );
+        .then(data => renderMovies(data));
 }
 
 // edit a movie
@@ -72,7 +71,7 @@ function editMovieList(id, title, genre, year, rating) {
         })
 
     }).then(response => response.json())
-        .then(data => renderMovies(data))
+        .then(data => data)
 
 }
 

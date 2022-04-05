@@ -10,6 +10,7 @@ var movieCardTitle;
 var movieCardGenre;
 var movieCardRating;
 var movieCardYear;
+var movieCardPoster;
 var i;
 var movieData;
 var attArray;
@@ -53,12 +54,11 @@ function deleteMovieList(id) {
     }).then(response => {
         response.json()
     })
-        .then(data => renderMovies(data)
-        );
+        .then(data => renderMovies(data));
 }
 
 // edit a movie
-function editMovieList(id, title, genre, year, rating) {
+function editMovieList(id, title, genre, year, rating, poster) {
     fetch(mainURL + "/" + id, {
         method: 'PUT',
         headers: {
@@ -68,11 +68,13 @@ function editMovieList(id, title, genre, year, rating) {
             title: title,
             year: year,
             rating: rating,
-            genre: genre
+            genre: genre,
+            poster: poster
+
         })
 
-    }).then(response => response.json())
-        .then(data => renderMovies(data))
+    }).then(response =>  response.json())
+        .then(data => data)
 
 }
 
@@ -87,25 +89,28 @@ function createCard(data) {
         movieCardRating = movieData.rating;
         movieCardGenre = movieData.genre;
         movieCardID = movieData.id;
+        movieCardPoster = movieData.poster
         attArray = [movieCardTitle, movieCardGenre, movieCardYear, movieCardRating]
         randNum = Math.floor(Math.random() * (10- 1 + 1)) + 1;
 
         html += `<div class="media-element ${movieCardID}">
                     <img class="image" id="cardimage"
-                            src="img/poster${randNum}.png"/>
+                            src='${movieCardPoster}'/>
                     <p class="movie-title-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Title</span>: ` + movieCardTitle + `</p>
                     <p class="movie-genre-scroller edit-movie-button datap"><span class="movie-genre-bold bolded">Genre</span>: ` + movieCardGenre + `</p>
                     <p class="movie-year-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Release</span>: ` + movieCardYear + `</p>
                     <p class="movie-rating-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Rating</span>: ` + movieCardRating + `</p>
                     <div class="movie-management-btns">
                         <i class="fa-solid fa-trash-can open-delete-movie-modal " id="${movieCardID}"></i>
-                        <i class="fa-solid fa-pen-to-square open-edit-movie-modal" id="${movieCardID}" data-title="${movieCardTitle}" data-genre="${movieCardGenre}" data-year="${movieCardYear}" data-rating="${movieCardRating}"></i>
+                        <i class="fa-solid fa-pen-to-square open-edit-movie-modal" id="${movieCardID}" data-title="${movieCardTitle}" data-genre="${movieCardGenre}" 
+                        data-year="${movieCardYear}" data-rating="${movieCardRating}" data-poster="${movieCardPoster}"></i>
                     </div>
                 </div>         
 `
         $('.snaps-inline').html(html);
 
     }
+
     //id tying to both edit modal and initial edit icon
     html2 += `<button type="submit" class="btn submit-edit" id="submit-edit">Submit</button>
 <button type="submit" class="btn close">Close</button>`
@@ -115,6 +120,7 @@ function createCard(data) {
     $('.open-edit-movie-modal').click(function () {
         $('#edit-movie-modal').css('display', 'block');
         $('#submit-edit').attr('id', `${this.id}`);
+        $('.submit-edit').attr('value', `${this.dataset.poster}`);
         $('#edit-title').attr('value', `${this.dataset.title}`);
         $('#edit-genre').attr('value', `${this.dataset.genre}`);
         $('#edit-rating').attr('value', `${this.dataset.rating}`);
@@ -147,7 +153,8 @@ function createCard(data) {
         movieCardGenre = $('#edit-genre').val();
         movieCardYear = $('#edit-year').val();
         movieCardRating = $('#edit-rating').val();
-        editMovieList(`${this.id}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`)
+        movieCardPoster = $('img').attr('src', `${this.value}`)
+        editMovieList(`${this.id}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`, `${this.value}`)
         $('#edit-movie-modal').css('display', 'none');
         $('.modal-backdrop').css('display', 'none');
 
@@ -175,6 +182,7 @@ $(document).ready(function () {
         newMovie.year = $('#add-year').val();
         newMovie.rating = $('#add-rating').val();
         newMovie.genre = $('#add-genre').val();
+        newMovie.poster = `../img/poster${randNum}.png`
         addMovieList()
         $('#add-movie-modal').css('display', 'none');
         $('.modal-backdrop').css('display', 'none');
@@ -219,6 +227,7 @@ function movieAPI(){
             newMovie.rating = data.imdbRating;
             newMovie.year = data.Year;
             newMovie.genre = data.Genre;
+            newMovie.poster = data.Poster
             addMovieList()
         })
 

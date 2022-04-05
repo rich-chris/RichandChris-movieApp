@@ -18,6 +18,7 @@
 }
 .movie-search-h1{
     font-size: 3.2rem;
+    font-weight: 700;
     color: var(--dark-soft-white);
     text-transform: uppercase;
     margin-bottom: 4rem;
@@ -94,22 +95,45 @@ input::placeholder{
 
 
 
-
+/*TODO MQ*/
 @media screen and (min-width: 750px) {
     .movie-search-h1 {
-        font-size: 5.2rem;
+        font-size: 6.2rem;
         margin-bottom: 5rem;
-        font-weight: 300;
+        font-weight: 800;
+        /*font-family: 'Mouse Memoirs', sans-serif;*/
     }
     .movie-output-control{
         margin: 3.5rem auto 5.2rem auto;
     }
     .search-container{
         width: 90%;
+
+    }
+    .search-wrapper{
+        margin-bottom: 6rem;
+    }
+
+    #form-area-new, #form-area-search{
+        padding-left: 10px;
+        height: 50px;
+        font-size: 2.6rem;
+
     }
     .svg-girls{
         display: block;
+
     }
+    .open-add-movie-modal{
+        width: 140px;
+        height: 42px;
+        border-radius: 25px;
+        background-color: var(--purple2);
+        color: var(--dark-soft-white);
+        font-size: 1.8rem;
+        /*font-weight: 500;*/
+    }
+/*    TODO: POPCORN GIRL ANIMATIONS*/
 #popcorn1{
     animation: popcorn1 1.5s ease-in-out infinite alternate;
 }
@@ -162,7 +186,7 @@ input::placeholder{
         }
     }
     #popcorn6{
-        animation: popcorn6 1.7s .2ms ease-in-out infinite alternate;
+        animation: popcorn6 1.9s .2ms ease-in-out infinite alternate;
     }
     @keyframes popcorn6 {
         from{
@@ -173,7 +197,7 @@ input::placeholder{
         }
     }
     #popcorn7{
-        animation: popcorn7 1.5s .3ms ease-in-out infinite alternate;
+        animation: popcorn7 1.9s .3ms ease-in-out infinite alternate;
     }
     @keyframes popcorn7 {
         from{
@@ -181,6 +205,46 @@ input::placeholder{
         }
         to{
             transform: translateY(12px);
+        }
+    }
+    /*right girl right hand*/
+    #Vector_99{
+        animation: Vector_99 2.5s .3ms ease-out infinite alternate;
+        transform-origin: left;
+        transform-box: fill-box;
+    }
+    @keyframes Vector_99 {
+        from{
+            transform: rotateZ(0);
+        }
+        to{
+            transform: rotate(10deg);
+        }
+    }
+    #Vector_40{
+        animation: Vector_40 2.7s .3ms ease-in-out infinite alternate;
+        transform-origin: right;
+        transform-box: fill-box;
+    }
+    @keyframes Vector_40 {
+        from{
+            transform: rotateZ(0);
+        }
+        to{
+            transform: rotate(15deg);
+        }
+    }
+    #Vector_39{
+        animation: Vector_39 2.9s .7ms ease-in-out infinite alternate;
+        transform-origin: left;
+        transform-box: fill-box;
+    }
+    @keyframes Vector_39 {
+        from{
+            transform: rotateZ(0);
+        }
+        to{
+            transform: rotate(15deg);
         }
     }
 }

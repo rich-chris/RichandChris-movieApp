@@ -21,6 +21,7 @@
 }
 .movie-carousel{
     width: 100%;
+    position: relative;
  }
 .media-element{
     display: grid;
@@ -30,15 +31,16 @@
     /*padding-right: 10px;*/
     /*padding: 20px;*/
 }
-.media-element > img{
+.media-element > img {
     /*padding: 20px;*/
-border-radius: 10px;
+    border-radius: 10px;
     width: 100%;
     /*min-width: 175px;*/
 
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+
 }
 .snaps-inline{
     scroll-snap-type: inline mandatory;
@@ -47,14 +49,14 @@ scroll-padding-inline: 1rem;
 .snaps-inline > *{
     scroll-snap-align: start;
 }
-.fa-circle-xmark{
-    font-size: 2.5rem;
-position: absolute;
-    color: var(--purple2);
-    right: 6px;
-    top: 6px;
-    filter: drop-shadow(0 0 5px #333);
-}
+/*.fa-circle-xmark{*/
+/*    font-size: 2.5rem;*/
+/*position: absolute;*/
+/*    color: var(--purple2);*/
+/*    right: 6px;*/
+/*    top: 6px;*/
+/*    filter: drop-shadow(0 0 5px #333);*/
+/*}*/
 .movie-management-btns{
     display: flex;
     align-items: center;
@@ -63,7 +65,10 @@ position: absolute;
     width: 100%;
     gap: 15px;
 }
-
+.open-delete-movie-modal,
+.open-edit-movie-modal{
+    cursor: pointer;
+}
 .bolded{
     font-weight: 600;
     color: var(--dark-soft-white);
@@ -74,10 +79,17 @@ position: absolute;
     text-transform: capitalize;
     /*font-weight: 500;*/
 }
+/*TODO SCROLLER GRADIENTS*/
+/*.movie-carousel::before{*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    width: 60px;*/
+/*    height: ;*/
 
+/*}*/
 @media screen and (min-width: 750px) {
     .media-scroller{
-        grid-auto-columns: 40%;
+        grid-auto-columns: 32%;
 
     }
 }

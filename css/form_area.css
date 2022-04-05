@@ -18,6 +18,7 @@
 }
 .movie-search-h1{
     font-size: 3.2rem;
+    font-weight: 700;
     color: var(--dark-soft-white);
     text-transform: uppercase;
     margin-bottom: 4rem;
@@ -97,16 +98,17 @@ input::placeholder{
 
 @media screen and (min-width: 750px) {
     .movie-search-h1 {
-        font-size: 7.2rem;
+        font-size: 6.2rem;
         margin-bottom: 5rem;
         font-weight: 800;
-        font-family: 'Mouse Memoirs', sans-serif;
+        /*font-family: 'Mouse Memoirs', sans-serif;*/
     }
     .movie-output-control{
         margin: 3.5rem auto 5.2rem auto;
     }
     .search-container{
         width: 90%;
+
     }
     .search-wrapper{
         margin-bottom: 6rem;
@@ -116,9 +118,11 @@ input::placeholder{
         padding-left: 10px;
         height: 50px;
         font-size: 2.6rem;
+
     }
     .svg-girls{
         display: block;
+
     }
     .open-add-movie-modal{
         width: 140px;
@@ -182,7 +186,7 @@ input::placeholder{
         }
     }
     #popcorn6{
-        animation: popcorn6 1.7s .2ms ease-in-out infinite alternate;
+        animation: popcorn6 1.9s .2ms ease-in-out infinite alternate;
     }
     @keyframes popcorn6 {
         from{
@@ -193,7 +197,7 @@ input::placeholder{
         }
     }
     #popcorn7{
-        animation: popcorn7 1.5s .3ms ease-in-out infinite alternate;
+        animation: popcorn7 1.9s .3ms ease-in-out infinite alternate;
     }
     @keyframes popcorn7 {
         from{
@@ -218,7 +222,7 @@ input::placeholder{
         }
     }
     #Vector_40{
-        animation: Vector_40 2.5s .3ms ease-in-out infinite alternate;
+        animation: Vector_40 2.7s .3ms ease-in-out infinite alternate;
         transform-origin: right;
         transform-box: fill-box;
     }
@@ -231,7 +235,7 @@ input::placeholder{
         }
     }
     #Vector_39{
-        animation: Vector_39 2.5s .7ms ease-in-out infinite alternate;
+        animation: Vector_39 2.9s .7ms ease-in-out infinite alternate;
         transform-origin: left;
         transform-box: fill-box;
     }

@@ -95,7 +95,7 @@ input::placeholder{
 
 
 
-
+/*TODO MQ*/
 @media screen and (min-width: 750px) {
     .movie-search-h1 {
         font-size: 6.2rem;

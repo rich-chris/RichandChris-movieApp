@@ -90,7 +90,7 @@ function createCard(data) {
         attArray = [movieCardTitle, movieCardGenre, movieCardYear, movieCardRating]
         randNum = Math.floor(Math.random() * (10- 1 + 1)) + 1;
 
-        html += `<div class="media-element ${movieCardID}">
+        html += `<div class="media-element ${movieCardID}" id="${movieCardTitle}">
                     <img class="image" id="cardimage"
                             src="img/poster${randNum}.png"/>
                     <p class="movie-title-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Title</span>: ` + movieCardTitle + `</p>
@@ -105,7 +105,26 @@ function createCard(data) {
 `
         $('.snaps-inline').html(html);
 
+
+        //TODO mouseover title Action
+        function titleMouseoverFunc(movieCardTitle) {
+           $('.media-element').hover(function (){
+            // console.log(this.id)
+               ballMessage.textContent = this.id;
+               ballMessage.classList.add("visible");
+               balls.forEach(ball =>{
+                   ball.classList.add("visible");
+               })
+        }, function (){
+               ballMessage.classList.remove("visible");
+               balls.forEach(ball =>{
+                   ball.classList.remove("visible");
+               })
+        })
+        }
+        titleMouseoverFunc($(movieCardTitle));
     }
+
     //id tying to both edit modal and initial edit icon
     html2 += `<button type="submit" class="btn submit-edit" id="submit-edit">Submit</button>
 <button type="submit" class="btn close">Close</button>`
@@ -152,7 +171,6 @@ function createCard(data) {
         $('.modal-backdrop').css('display', 'none');
 
     });
-
 
 }
 
@@ -203,7 +221,7 @@ document.getElementById('form-area-search').addEventListener('keyup', filter_mov
 
 
 document.onkeydown = function (e){
-    if (e.keyCode === 13) {
+    if (e.key === "13") {
         document.getElementById('form-area-new').addEventListener('change', movieAPI)
         searchedMovieTitle = document.getElementById('form-area-new').value
 

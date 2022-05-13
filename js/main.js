@@ -1,21 +1,24 @@
 "use strict";
 
-const mainURL = "https://wandering-copper-sight.glitch.me/movies";
+
+const mainURL = "http://localhost:8080/api/movies/all";
+const postURL = "http://localhost:8080/api/movies/post/";
+const deleteURL = "http://localhost:8080/api/movies/delete/";
 var newMovie = {};
-// newMovie.title = '';
-// newMovie.year = '';
-// newMovie.rating = '';
 var movieCardID;
 var movieCardTitle;
 var movieCardGenre;
 var movieCardRating;
 var movieCardYear;
-var movieCardPoster;
+// var movieCardPoster;
 var i;
 var movieData;
 var attArray;
 var searchedMovieTitle;
 var randNum;
+var movieCardActors;
+var movieCardPlot;
+var movieCardDirector;
 
 
 loadPage()
@@ -40,7 +43,7 @@ function addMovieList() {
         },
         body: JSON.stringify(newMovie),
     };
-    fetch(mainURL, options)
+    fetch(postURL, options)
         .then(response => response)
         .then(data => renderMovies(data))
         .catch(error => console.error(error));
@@ -49,7 +52,7 @@ function addMovieList() {
 
 //delete a movie
 function deleteMovieList(id) {
-    fetch(mainURL + "/" + id, {
+    fetch(deleteURL + id, {
         method: 'DELETE'
     }).then(response => {
         response.json()
@@ -66,8 +69,8 @@ function editMovieList(id, title, genre, year, rating, poster) {
         },
         body: JSON.stringify({
             title: title,
-            year: year,
             rating: rating,
+            year: year,
             genre: genre,
             poster: poster
 
@@ -85,25 +88,26 @@ function createCard(data) {
     for (i = 0; i < data.length; i++) {
         movieData = data[i];
         movieCardTitle = movieData.title;
-        movieCardYear = movieData.year;
         movieCardRating = movieData.rating;
+        movieCardYear = movieData.year;
         movieCardGenre = movieData.genre;
         movieCardID = movieData.id;
-        movieCardPoster = movieData.poster
-        attArray = [movieCardTitle, movieCardGenre, movieCardYear, movieCardRating]
+        // movieCardPoster = movieData.poster
+        attArray = [movieCardTitle, movieCardRating, movieCardYear, movieCardGenre]
         randNum = Math.floor(Math.random() * (10- 1 + 1)) + 1;
 
         html += `<div class="media-element ${movieCardID}" id="${movieCardTitle}">
-                    <img class="image" id="cardimage"
-                            src='${movieCardPoster}'/>
+                    
                     <p class="movie-title-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Title</span>: ` + movieCardTitle + `</p>
-                    <p class="movie-genre-scroller edit-movie-button datap"><span class="movie-genre-bold bolded">Genre</span>: ` + movieCardGenre + `</p>
-                    <p class="movie-year-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Release</span>: ` + movieCardYear + `</p>
                     <p class="movie-rating-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Rating</span>: ` + movieCardRating + `</p>
+                    <p class="movie-year-scroller edit-movie-button datap"><span class="movie-title-bold bolded">Release</span>: ` + movieCardYear + `</p>
+                    <p class="movie-genre-scroller edit-movie-button datap"><span class="movie-genre-bold bolded">Genre</span>: ` + movieCardGenre + `</p>
+                    
+                    
                     <div class="movie-management-btns">
                         <i class="fa-solid fa-trash-can open-delete-movie-modal " id="${movieCardID}"></i>
                         <i class="fa-solid fa-pen-to-square open-edit-movie-modal" id="${movieCardID}" data-title="${movieCardTitle}" data-genre="${movieCardGenre}" 
-                        data-year="${movieCardYear}" data-rating="${movieCardRating}" data-poster="${movieCardPoster}"></i>
+                        data-year="${movieCardYear}" data-rating="${movieCardRating}"></i>
                     </div>
                 </div>         
 `
@@ -171,7 +175,7 @@ function createCard(data) {
         movieCardGenre = $('#edit-genre').val();
         movieCardYear = $('#edit-year').val();
         movieCardRating = $('#edit-rating').val();
-        movieCardPoster = $('img').attr('src', `${this.value}`)
+        // movieCardPoster = $('img').attr('src', `${this.value}`)
         editMovieList(`${this.id}`, `${movieCardTitle}`, `${movieCardGenre}`, `${movieCardYear}`, `${movieCardRating}`, `${this.value}`)
         $('#edit-movie-modal').css('display', 'none');
         $('.modal-backdrop').css('display', 'none');
@@ -237,7 +241,7 @@ document.onkeydown = function (e){
 
 //fetch omdb api
 function movieAPI(){
-    fetch(`https://www.omdbapi.com/?apikey=${OMDB_KEY}&t=${searchedMovieTitle}`)
+    fetch(/*`https://www.omdbapi.com/?apikey=${OMDB_KEY}&t=${searchedMovieTitle}`*/'http://localhost:8080/api/movies/all')
         .then(response => response.json())
         .then(data => {
             newMovie.title = data.Title;
